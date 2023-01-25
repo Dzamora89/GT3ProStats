@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script !src="">
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "text/plain");
+
+    var raw = "{\r\n    \"driverID\" : \"20\",\r\n    \"firstName\" : \"Julito\",\r\n    \"lastName\" : \"Gounon\",\r\n    \"country\" : \"France\",\r\n    \"dateOfBirth\" : \"31-12-1994\",\r\n    \"driverWebsite\" : \"http://julesgounon.com/\",\r\n    \"driverTwitter\" : \"https://twitter.com/julesgounon\",\r\n    \"driverLicenseLevel\" : \"Platinun\",\r\n    \"driverStatus\" : \"Active\",\r\n    \"driverELO\" : \"2000\"\r\n}";
+
+    var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+    };
+
+    fetch("http://localhost/gt3prostats/api/driver/UpdateDriver.php", requestOptions)
+        .then(response => response.text())
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error));
+</script>
+</body>
+</html>
