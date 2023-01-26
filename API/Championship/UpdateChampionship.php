@@ -28,6 +28,7 @@ $championship->facebook = $data->facebook;
 $championship->twitter = $data->twitter;
 $championship->website = $data->website;
 $championship->country = $data->country;
+$championship->season = $data->season;
 
 // Update
 
