@@ -11,7 +11,7 @@ class Team
     public $teamName;
     public $teamOwner;
     public $teamCountry;
-    public $teamTwitterURL;
+    public $teamTwitter;
     public $teamWebsite;
     public $teamCarBrand;
 
@@ -48,7 +48,7 @@ class Team
         teamName = :teamName,
         teamOwner = :teamOwner,
         teamCountry = :teamCountry,
-        teamTwitterURL = :teamTwitterURL,
+        teamTwitter = :teamTwitter,
         teamWebsite = :teamWebsite,
         teamCarBrand = :teamCarBrand';
 
@@ -60,7 +60,7 @@ class Team
         $this->teamName = htmlspecialchars(strip_tags($this->teamName));
         $this->teamOwner = htmlspecialchars(strip_tags($this->teamOwner));
         $this->teamCountry = htmlspecialchars(strip_tags($this->teamCountry));
-        $this->teamTwitterURL = htmlspecialchars(strip_tags($this->teamTwitterURL));
+        $this->teamTwitter = htmlspecialchars(strip_tags($this->teamTwitter));
         $this->teamWebsite = htmlspecialchars(strip_tags($this->teamWebsite));
         $this->teamCarBrand = htmlspecialchars(strip_tags($this->teamCarBrand));
         //Bind the dada
@@ -69,7 +69,7 @@ class Team
         $stmt->bindParam(':teamName', $this->teamName);
         $stmt->bindParam(':teamOwner', $this->teamOwner);
         $stmt->bindParam(':teamCountry', $this->teamCountry);
-        $stmt->bindParam(':teamTwitterURL', $this->teamTwitterURL);
+        $stmt->bindParam(':teamTwitter', $this->teamTwitter);
         $stmt->bindParam(':teamWebsite', $this->teamWebsite);
         $stmt->bindParam(':teamCarBrand', $this->teamCarBrand);
 
@@ -91,7 +91,7 @@ class Team
         teamName = :teamName,
         teamOwner = :teamOwner,
         teamCountry = :teamCountry,
-        teamTwitterURL = :teamTwitterURL,
+        teamTwitter = :teamTwitter,
         teamWebsite = :teamWebsite,
         teamCarBrand = :teamCarBrand
         WHERE
@@ -105,7 +105,7 @@ class Team
         $this->teamName = htmlspecialchars(strip_tags($this->teamName));
         $this->teamOwner = htmlspecialchars(strip_tags($this->teamOwner));
         $this->teamCountry = htmlspecialchars(strip_tags($this->teamCountry));
-        $this->teamTwitterURL = htmlspecialchars(strip_tags($this->teamTwitterURL));
+        $this->teamTwitter = htmlspecialchars(strip_tags($this->teamTwitter));
         $this->teamWebsite = htmlspecialchars(strip_tags($this->teamWebsite));
         $this->teamCarBrand = htmlspecialchars(strip_tags($this->teamCarBrand));
 
@@ -114,7 +114,7 @@ class Team
         $stmt->bindParam(':teamName', $this->teamName);
         $stmt->bindParam(':teamOwner', $this->teamOwner);
         $stmt->bindParam(':teamCountry', $this->teamCountry);
-        $stmt->bindParam(':teamTwitterURL', $this->teamTwitterURL);
+        $stmt->bindParam(':teamTwitter', $this->teamTwitter);
         $stmt->bindParam(':teamWebsite', $this->teamWebsite);
         $stmt->bindParam(':teamCarBrand', $this->teamCarBrand);
 
@@ -152,7 +152,7 @@ class Team
         $this->teamName = $row['teamName'];
         $this->teamOwner = $row['teamOwner'];
         $this->teamCountry = $row['teamCountry'];
-        $this->teamTwitterURL = $row['teamTwitterURL'];
+        $this->teamTwitter = $row['teamTwitter'];
         $this->teamWebsite = $row['teamWebsite'];
         $this->teamCarBrand = $row['teamCarBrand'];
 

@@ -24,7 +24,7 @@ $data = json_decode(file_get_contents("php://input"));
 $team->teamName = $data->teamName;
 $team->teamOwner = $data->teamOwner;
 $team->teamCountry = $data->teamCountry;
-$team->teamTwitterURL = $data->teamTwitterURL;
+$team->teamTwitter = $data->teamTwitter;
 $team->teamWebsite = $data->teamWebsite;
 $team->teamCarBrand = $data->teamCarBrand;
 
