@@ -23,7 +23,7 @@ $team_Array = array(
     'teamName' => $team->teamName,
     'teamOwner' => $team->teamOwner,
     'teamCountry' => $team->teamCountry,
-    'teamTwitterURL' => $team->teamTwitterURL,
+    'teamTwitter' => $team->teamTwitter,
     'teamWebsite' => $team->teamWebsite,
     'teamCarBrand' => $team->teamCarBrand);
 
