@@ -10,7 +10,7 @@ class Race
     // Properties
     public $raceID;
     public $track;
-    public $date;
+    public $dateOfRace;
     public $country;
     public $championshipID;
 
@@ -24,7 +24,7 @@ class Race
         $query = 'INSERT INTO ' . $this->table . ' 
         SET 
         track = :track,
-        date = :date,
+        dateOfRace = :dateOfRace,
         country = :country,
         championshipID = :championshipID
         ';
@@ -36,14 +36,14 @@ class Race
 
         $this->track = htmlspecialchars(strip_tags($this->track));
         $this->country = htmlspecialchars(strip_tags($this->country));
-        $this->date = htmlspecialchars(strip_tags($this->date));
+        $this->dateOfRace = htmlspecialchars(strip_tags($this->dateOfRace));
         $this->championshipID = htmlspecialchars(strip_tags($this->championshipID));
 
 
         //Bind the dada
         $stmt->bindParam(':track', $this->track);
         $stmt->bindParam(':country', $this->country);
-        $stmt->bindParam(':date', $this->date);
+        $stmt->bindParam(':dateOfRace', $this->dateOfRace);
         $stmt->bindParam(':championshipID', $this->championshipID);
 
 
@@ -63,7 +63,7 @@ class Race
         $query = 'UPDATE ' . $this->table . ' 
         SET 
         track = :track,
-        date = :date,
+        dateOfRace = :dateOfRace,
         country = :country,
         championshipID = :championshipID
         WHERE
@@ -76,14 +76,14 @@ class Race
         $this->raceID = htmlspecialchars(strip_tags($this->raceID));
         $this->track = htmlspecialchars(strip_tags($this->track));
         $this->country = htmlspecialchars(strip_tags($this->country));
-        $this->date = htmlspecialchars(strip_tags($this->date));
+        $this->dateOfRace = htmlspecialchars(strip_tags($this->dateOfRace));
         $this->championshipID = htmlspecialchars(strip_tags($this->championshipID));
 
         //Bind the dada
         $stmt->bindParam(':raceID', $this->raceID);
         $stmt->bindParam(':track', $this->track);
         $stmt->bindParam(':country', $this->country);
-        $stmt->bindParam(':date', $this->date);
+        $stmt->bindParam(':dateOfRace', $this->dateOfRace);
         $stmt->bindParam(':championshipID', $this->championshipID);
 
         //Execute Query
@@ -119,7 +119,7 @@ class Race
         $this->track = $row['track'];
         $this->championshipID = $row['championshipID'];
         $this->country = $row['country'];
-        $this->date = $row['date'];
+        $this->dateOfRace = $row['dateOfRace'];
     }
 
     public function deleteRace(): bool
