@@ -148,12 +148,11 @@ class Race
         return false;
     }
 
-    public function tenNextRaces()
+    public function getAllRaces()
     {
         //Create the Query
         $query = 'SELECT * FROM ' . $this->table . '
-                ORDER BY dateOfRace	
-                limit 10';
+                ORDER BY dateOfRace';
         //Prepare Statment
         $stmt = $this->conn->prepare($query);
 

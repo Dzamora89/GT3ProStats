@@ -16,7 +16,7 @@ $race = new Race($db);
 
 //Race  Query
 
-$result = $race->tenNextRaces();
+$result = $race->getAllRaces();
 //Get Row count
 $rowNumber = $result->rowCount();
 
@@ -31,7 +31,7 @@ if ($rowNumber > 0) {
         $race_item = array(
             'raceID' => $raceID,
             'track' => $track,
-            'date' => $date,
+            'dateOfRace' => $dateOfRace,
             'country' => $country,
             'championshipID' => $championshipID
         );
