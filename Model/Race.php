@@ -151,7 +151,7 @@ class Race
     public function getAllRaces()
     {
         //Create the Query
-        $query = 'SELECT * FROM ' . $this->table . '
+        $query = 'SELECT * FROM race r JOIN championship c ON r.championshipID = c.championshipID
                 ORDER BY dateOfRace';
         //Prepare Statment
         $stmt = $this->conn->prepare($query);

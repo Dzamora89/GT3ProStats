@@ -33,7 +33,7 @@ if ($rowNumber > 0) {
             'track' => $track,
             'dateOfRace' => $dateOfRace,
             'country' => $country,
-            'championshipID' => $championshipID
+            'name' => $name
         );
         // Push Data This work the same as array_push() https://www.php.net/manual/es/function.array-push.php
 //        $post_Array['Data'][] = $Race_item;
