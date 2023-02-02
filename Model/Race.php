@@ -148,12 +148,12 @@ class Race
         return false;
     }
 
-    public function threeNextRaces()
+    public function tenNextRaces()
     {
         //Create the Query
         $query = 'SELECT * FROM ' . $this->table . '
                 ORDER BY dateOfRace	
-                limit 3';
+                limit 10';
         //Prepare Statment
         $stmt = $this->conn->prepare($query);
 
