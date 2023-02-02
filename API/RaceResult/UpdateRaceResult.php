@@ -13,7 +13,7 @@ include_once '../../Model/RaceResult.php';
 $database = new Database();
 $db = $database->connect();
 
-//Initialize the Championship
+//Initialize the 
 $raceResult = new RaceResult($db);
 
 

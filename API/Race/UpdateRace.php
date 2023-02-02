@@ -13,7 +13,7 @@ include_once '../../Model/Race.php';
 $database = new Database();
 $db = $database->connect();
 
-//Initialize the Championship
+//Initialize the ChampionshipID
 $race = new Race($db);
 
 
@@ -22,7 +22,7 @@ $data = json_decode(file_get_contents("php://input"));
 
 $race->raceID = $data->raceID;
 $race->track = $data->track;
-$race->championship = $data->championship;
+$race->championshipID = $data->ChampionshipID;
 $race->country = $data->country;
 $race->date = $data->date;
 

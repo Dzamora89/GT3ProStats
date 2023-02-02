@@ -23,6 +23,6 @@ $race_Array = array(
     'track' => $race->track,
     'date' => $race->date,
     'country' => $race->country,
-    'championship' => $race->championship);
+    'ChampionshipID' => $race->championshipID);
 
 print_r(json_encode($race_Array));
