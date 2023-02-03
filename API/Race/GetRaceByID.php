@@ -21,7 +21,7 @@ $race->getRaceByID();
 $race_Array = array(
     'raceID' => $race->raceID,
     'track' => $race->track,
-    'date' => $race->date,
+    'dateOfRace' => $race->dateOfRace,
     'country' => $race->country,
     'ChampionshipID' => $race->championshipID);
 

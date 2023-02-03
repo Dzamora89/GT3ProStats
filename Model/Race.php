@@ -122,6 +122,22 @@ class Race
         $this->dateOfRace = $row['dateOfRace'];
     }
 
+    public function getRaceBychampionshipID()
+    {
+        $query = 'SELECT * 
+                  FROM ' . $this->table . '
+                  WHERE championshipID = :championshipID';
+        //Prepare Statement
+
+        $stmt = $this->conn->prepare($query);
+
+        //Bind ID
+
+        $stmt->bindParam(':championshipID', $this->championshipID);
+        $stmt->execute();
+        return $stmt;
+    }
+
     public function deleteRace(): bool
     {
 

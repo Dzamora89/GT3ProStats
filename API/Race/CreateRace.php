@@ -22,9 +22,9 @@ $race = new Race($db);
 $data = json_decode(file_get_contents("php://input"));
 
 $race->track = $data->track;
-$race->ChampionshipID = $data->ChampionshipID;
+$race->championshipID = $data->championshipID;
 $race->country = $data->country;
-$race->date = $data->date;
+$race->dateOfRace = $data->dateOfRace;
 
 //Create the race
 if ($race->createRace()) {
