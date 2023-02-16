@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.3
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jan 30, 2023 at 11:42 PM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 7.4.28
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 16-02-2023 a las 18:39:59
+-- Versión del servidor: 10.4.27-MariaDB
+-- Versión de PHP: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `gt3stats`
+-- Base de datos: `gt3stats`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `car`
+-- Estructura de tabla para la tabla `car`
 --
 
 CREATE TABLE `car` (
@@ -33,10 +33,10 @@ CREATE TABLE `car` (
   `number` int(11) NOT NULL,
   `teamID` int(10) UNSIGNED DEFAULT NULL,
   `classCar` varchar(32) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `car`
+-- Volcado de datos para la tabla `car`
 --
 
 INSERT INTO `car` (`carID`, `manufacturer`, `number`, `teamID`, `classCar`) VALUES
@@ -78,23 +78,12 @@ INSERT INTO `car` (`carID`, `manufacturer`, `number`, `teamID`, `classCar`) VALU
 (36, 'BMW ', 34, 18, 'gt3'),
 (37, 'BMW ', 35, 18, 'gt3'),
 (38, 'BMW ', 28, 19, 'gt3'),
-(41, 'Prueba', 59, 2, 'gt3');
+(41, 'Prueba2222', 59, 2, 'gt3');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `carclassification`
---
-
-CREATE TABLE `carclassification` (
-  `championshipEntryID` int(10) UNSIGNED NOT NULL,
-  `carID` int(10) UNSIGNED NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `championship`
+-- Estructura de tabla para la tabla `championship`
 --
 
 CREATE TABLE `championship` (
@@ -106,10 +95,10 @@ CREATE TABLE `championship` (
   `twitter` tinytext DEFAULT NULL,
   `facebook` tinytext DEFAULT NULL,
   `youtube` tinytext DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `championship`
+-- Volcado de datos para la tabla `championship`
 --
 
 INSERT INTO `championship` (`championshipID`, `name`, `season`, `country`, `website`, `twitter`, `facebook`, `youtube`) VALUES
@@ -121,7 +110,7 @@ INSERT INTO `championship` (`championshipID`, `name`, `season`, `country`, `webs
 -- --------------------------------------------------------
 
 --
--- Table structure for table `championshipentry`
+-- Estructura de tabla para la tabla `championshipentry`
 --
 
 CREATE TABLE `championshipentry` (
@@ -129,13 +118,16 @@ CREATE TABLE `championshipentry` (
   `championshipID` int(10) UNSIGNED DEFAULT NULL,
   `totalPoints` int(11) DEFAULT NULL,
   `position` int(11) DEFAULT NULL,
-  `class` varchar(32) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `class` varchar(32) DEFAULT NULL,
+  `driverID` int(10) UNSIGNED NOT NULL,
+  `carID` int(10) UNSIGNED NOT NULL,
+  `teamID` int(10) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `driver`
+-- Estructura de tabla para la tabla `driver`
 --
 
 CREATE TABLE `driver` (
@@ -149,10 +141,10 @@ CREATE TABLE `driver` (
   `driverStatus` tinytext DEFAULT NULL,
   `driverLicenseLevel` tinytext DEFAULT NULL,
   `driverELO` int(11) DEFAULT 1500
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `driver`
+-- Volcado de datos para la tabla `driver`
 --
 
 INSERT INTO `driver` (`driverID`, `firstName`, `lastName`, `country`, `dateOfBirth`, `driverWebsite`, `driverTwitter`, `driverStatus`, `driverLicenseLevel`, `driverELO`) VALUES
@@ -206,60 +198,50 @@ INSERT INTO `driver` (`driverID`, `firstName`, `lastName`, `country`, `dateOfBir
 (50, 'Dries ', 'Vanthoor ', 'Belgium', '1998-04-20', 'http://driesvanthoor.com/', 'https://twitter.com/dries_vanthoor', NULL, NULL, 1500),
 (51, 'Kelvin ', 'van der Linde', 'South African', '1996-06-20', 'http://kelvinvanderlinde.com/', 'https://twitter.com/KelvinvdLinde', NULL, NULL, 1500),
 (52, 'Charles ', 'Weerts ', 'Belgium', '2001-03-01', NULL, NULL, NULL, NULL, 1500),
-(53, 'Nick ', 'Wittmer ', 'Canadian', '1985-05-03', NULL, NULL, NULL, NULL, 1500);
+(53, 'Nick ', 'Wittmer ', 'Canadian', '1985-05-03', NULL, NULL, NULL, NULL, 1500),
+(72, 'Diego', 'Zamora', 'España', '0000-00-00', '', '', 'Active', ' ', 1500);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `driverclassification`
---
-
-CREATE TABLE `driverclassification` (
-  `championshipEntryID` int(10) UNSIGNED NOT NULL,
-  `driverID` int(10) UNSIGNED NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `driverscores`
+-- Estructura de tabla para la tabla `driverscores`
 --
 
 CREATE TABLE `driverscores` (
   `driverID` int(10) UNSIGNED NOT NULL,
   `raceResultID` int(10) UNSIGNED NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `drives`
+-- Estructura de tabla para la tabla `drives`
 --
 
 CREATE TABLE `drives` (
   `driverID` int(10) UNSIGNED NOT NULL,
   `carID` int(10) UNSIGNED NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `race`
+-- Estructura de tabla para la tabla `race`
 --
 
 CREATE TABLE `race` (
   `raceID` int(10) UNSIGNED NOT NULL,
-  `Circuit` varchar(32) NOT NULL,
+  `track` varchar(32) NOT NULL,
   `dateOfRace` date DEFAULT NULL,
   `country` varchar(32) NOT NULL,
   `championshipID` int(10) UNSIGNED DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `race`
+-- Volcado de datos para la tabla `race`
 --
 
-INSERT INTO `race` (`raceID`, `Circuit`, `dateOfRace`, `country`, `championshipID`) VALUES
+INSERT INTO `race` (`raceID`, `track`, `dateOfRace`, `country`, `championshipID`) VALUES
 (1, 'Motorsport Arena Oschersleben', '2023-05-28', 'Germany', 1),
 (2, 'Circuit Zandvoort', '2023-06-25', 'Netherlands', 1),
 (3, 'Norisring', '2023-07-09', 'Germany', 1),
@@ -294,7 +276,7 @@ INSERT INTO `race` (`raceID`, `Circuit`, `dateOfRace`, `country`, `championshipI
 -- --------------------------------------------------------
 
 --
--- Table structure for table `raceresult`
+-- Estructura de tabla para la tabla `raceresult`
 --
 
 CREATE TABLE `raceresult` (
@@ -305,12 +287,12 @@ CREATE TABLE `raceresult` (
   `laps` int(11) DEFAULT NULL,
   `pointsScored` int(11) DEFAULT NULL,
   `eloChanged` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `team`
+-- Estructura de tabla para la tabla `team`
 --
 
 CREATE TABLE `team` (
@@ -321,10 +303,10 @@ CREATE TABLE `team` (
   `teamTwitter` tinytext DEFAULT NULL,
   `teamWebsite` tinytext DEFAULT NULL,
   `teamCarBrand` tinytext DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `team`
+-- Volcado de datos para la tabla `team`
 --
 
 INSERT INTO `team` (`teamID`, `teamName`, `teamOwner`, `teamCountry`, `teamTwitter`, `teamWebsite`, `teamCarBrand`) VALUES
@@ -349,72 +331,61 @@ INSERT INTO `team` (`teamID`, `teamName`, `teamOwner`, `teamCountry`, `teamTwitt
 (19, 'Samantha Tan Racing', NULL, NULL, NULL, NULL, 'BMW');
 
 --
--- Indexes for dumped tables
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `car`
+-- Indices de la tabla `car`
 --
 ALTER TABLE `car`
   ADD PRIMARY KEY (`carID`),
   ADD KEY `carID_teamID_FK` (`teamID`);
 
 --
--- Indexes for table `carclassification`
---
-ALTER TABLE `carclassification`
-  ADD PRIMARY KEY (`carID`,`championshipEntryID`),
-  ADD KEY `championshipEntryID_Car_FK` (`championshipEntryID`);
-
---
--- Indexes for table `championship`
+-- Indices de la tabla `championship`
 --
 ALTER TABLE `championship`
   ADD PRIMARY KEY (`championshipID`);
 
 --
--- Indexes for table `championshipentry`
+-- Indices de la tabla `championshipentry`
 --
 ALTER TABLE `championshipentry`
   ADD PRIMARY KEY (`championshipEntryID`),
-  ADD KEY `championshipID_FK` (`championshipID`);
+  ADD KEY `championshipID_FK` (`championshipID`),
+  ADD KEY `championshipEntry_driverID_FK` (`driverID`),
+  ADD KEY `championshipEntry_carID_FK` (`carID`),
+  ADD KEY `championshipEntry_teamID_FK` (`teamID`);
 
 --
--- Indexes for table `driver`
+-- Indices de la tabla `driver`
 --
 ALTER TABLE `driver`
   ADD PRIMARY KEY (`driverID`);
 
 --
--- Indexes for table `driverclassification`
---
-ALTER TABLE `driverclassification`
-  ADD PRIMARY KEY (`championshipEntryID`,`driverID`),
-  ADD KEY `driverClassification_ChampionshipEntry_FK` (`driverID`);
-
---
--- Indexes for table `driverscores`
+-- Indices de la tabla `driverscores`
 --
 ALTER TABLE `driverscores`
   ADD PRIMARY KEY (`driverID`,`raceResultID`),
   ADD KEY `RaceResultID_DriverID_FK` (`raceResultID`);
 
 --
--- Indexes for table `drives`
+-- Indices de la tabla `drives`
 --
 ALTER TABLE `drives`
   ADD PRIMARY KEY (`driverID`,`carID`),
   ADD KEY `carID_FK` (`carID`);
 
 --
--- Indexes for table `race`
+-- Indices de la tabla `race`
 --
 ALTER TABLE `race`
   ADD PRIMARY KEY (`raceID`),
   ADD KEY `race_Championship_FK` (`championshipID`);
 
 --
--- Indexes for table `raceresult`
+-- Indices de la tabla `raceresult`
 --
 ALTER TABLE `raceresult`
   ADD PRIMARY KEY (`raceResultID`),
@@ -422,109 +393,98 @@ ALTER TABLE `raceresult`
   ADD KEY `RaceResult_RaceID_FK` (`raceID`);
 
 --
--- Indexes for table `team`
+-- Indices de la tabla `team`
 --
 ALTER TABLE `team`
   ADD PRIMARY KEY (`teamID`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT for table `car`
+-- AUTO_INCREMENT de la tabla `car`
 --
 ALTER TABLE `car`
   MODIFY `carID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
--- AUTO_INCREMENT for table `championship`
+-- AUTO_INCREMENT de la tabla `championship`
 --
 ALTER TABLE `championship`
   MODIFY `championshipID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT for table `championshipentry`
+-- AUTO_INCREMENT de la tabla `championshipentry`
 --
 ALTER TABLE `championshipentry`
   MODIFY `championshipEntryID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `driver`
+-- AUTO_INCREMENT de la tabla `driver`
 --
 ALTER TABLE `driver`
-  MODIFY `driverID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+  MODIFY `driverID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
 
 --
--- AUTO_INCREMENT for table `race`
+-- AUTO_INCREMENT de la tabla `race`
 --
 ALTER TABLE `race`
-  MODIFY `raceID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `raceID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
--- AUTO_INCREMENT for table `raceresult`
+-- AUTO_INCREMENT de la tabla `raceresult`
 --
 ALTER TABLE `raceresult`
   MODIFY `raceResultID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `team`
+-- AUTO_INCREMENT de la tabla `team`
 --
 ALTER TABLE `team`
-  MODIFY `teamID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `teamID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
--- Constraints for dumped tables
+-- Restricciones para tablas volcadas
 --
 
 --
--- Constraints for table `car`
+-- Filtros para la tabla `car`
 --
 ALTER TABLE `car`
   ADD CONSTRAINT `carID_teamID_FK` FOREIGN KEY (`teamID`) REFERENCES `team` (`teamID`);
 
 --
--- Constraints for table `carclassification`
---
-ALTER TABLE `carclassification`
-  ADD CONSTRAINT `carID_Championship_FK` FOREIGN KEY (`carID`) REFERENCES `car` (`carID`),
-  ADD CONSTRAINT `championshipEntryID_Car_FK` FOREIGN KEY (`championshipEntryID`) REFERENCES `championshipentry` (`championshipEntryID`);
-
---
--- Constraints for table `championshipentry`
+-- Filtros para la tabla `championshipentry`
 --
 ALTER TABLE `championshipentry`
+  ADD CONSTRAINT `championshipEntry_carID_FK` FOREIGN KEY (`carID`) REFERENCES `car` (`carID`),
+  ADD CONSTRAINT `championshipEntry_driverID_FK` FOREIGN KEY (`driverID`) REFERENCES `driver` (`driverID`),
+  ADD CONSTRAINT `championshipEntry_teamID_FK` FOREIGN KEY (`teamID`) REFERENCES `team` (`teamID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `championshipID_FK` FOREIGN KEY (`championshipID`) REFERENCES `championship` (`championshipID`);
 
 --
--- Constraints for table `driverclassification`
---
-ALTER TABLE `driverclassification`
-  ADD CONSTRAINT `championshipEntry_diverClassification_FK` FOREIGN KEY (`championshipEntryID`) REFERENCES `championshipentry` (`championshipEntryID`),
-  ADD CONSTRAINT `driverClassification_ChampionshipEntry_FK` FOREIGN KEY (`driverID`) REFERENCES `driver` (`driverID`);
-
---
--- Constraints for table `driverscores`
+-- Filtros para la tabla `driverscores`
 --
 ALTER TABLE `driverscores`
   ADD CONSTRAINT `DriverID_RaceResultID_Fk` FOREIGN KEY (`driverID`) REFERENCES `driver` (`driverID`),
   ADD CONSTRAINT `RaceResultID_DriverID_FK` FOREIGN KEY (`raceResultID`) REFERENCES `raceresult` (`raceResultID`);
 
 --
--- Constraints for table `drives`
+-- Filtros para la tabla `drives`
 --
 ALTER TABLE `drives`
   ADD CONSTRAINT `carID_FK` FOREIGN KEY (`carID`) REFERENCES `car` (`carID`),
   ADD CONSTRAINT `driverID_FK` FOREIGN KEY (`driverID`) REFERENCES `driver` (`driverID`);
 
 --
--- Constraints for table `race`
+-- Filtros para la tabla `race`
 --
 ALTER TABLE `race`
   ADD CONSTRAINT `race_Championship_FK` FOREIGN KEY (`championshipID`) REFERENCES `championship` (`championshipID`);
 
 --
--- Constraints for table `raceresult`
+-- Filtros para la tabla `raceresult`
 --
 ALTER TABLE `raceresult`
   ADD CONSTRAINT `RaceResult_CarID_FK` FOREIGN KEY (`carID`) REFERENCES `car` (`carID`),
