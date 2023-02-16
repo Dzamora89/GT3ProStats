@@ -31,7 +31,7 @@ if ($rowNumber > 0) {
             'driverID' => $driverID,
             'firstName' => $firstName,
             'lastName' => $lastName,
-            'country' => $country,
+            'driverCountry' => $driverCountry,
             'dateOfBirth' => $dateOfBirth,
             'driverWebsite' => $driverWebsite,
             'driverTwitter' => $driverTwitter,

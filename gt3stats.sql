@@ -101,7 +101,7 @@ CREATE TABLE `championship` (
 -- Volcado de datos para la tabla `championship`
 --
 
-INSERT INTO `championship` (`championshipID`, `name`, `season`, `country`, `website`, `twitter`, `facebook`, `youtube`) VALUES
+INSERT INTO `championship` (`championshipID`, championshipName, championshipSeason, championshipCountry, championshipWebsite, championshipTwitter, championshipFacebook, championshipYoutube)VALUES
 (1, 'DTM Germany', 2023, 'Germany', 'https://www.dtm.com/en', NULL, NULL, NULL),
 (2, 'IMSA GTD', 2023, 'North America', 'https://www.imsa.com/', NULL, NULL, NULL),
 (3, 'GTWC Sprint Europe', 2023, 'Europe', 'https://www.gt-world-challenge-e', NULL, NULL, NULL),
@@ -147,7 +147,7 @@ CREATE TABLE `driver` (
 -- Volcado de datos para la tabla `driver`
 --
 
-INSERT INTO `driver` (`driverID`, `firstName`, `lastName`, `country`, `dateOfBirth`, `driverWebsite`, `driverTwitter`, `driverStatus`, `driverLicenseLevel`, `driverELO`) VALUES
+INSERT INTO `driver` (`driverID`, `firstName`, `lastName`, driverCountry, `dateOfBirth`, `driverWebsite`, `driverTwitter`, `driverStatus`, `driverLicenseLevel`, `driverELO`)VALUES
 (3, 'Vincent ', 'Abril ', 'French', '1995-03-01', 'http://vincentabril.com/', 'https://twitter.com/vinceabril?lang=en', NULL, NULL, 1500),
 (4, 'Jack ', 'Aitken ', 'British', '1995-09-23', NULL, NULL, NULL, NULL, 1500),
 (5, 'Lucas ', 'Auer ', 'Austrian', '1994-11-11', NULL, NULL, NULL, NULL, 1500),

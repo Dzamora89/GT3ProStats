@@ -12,7 +12,9 @@ class ChampionshipEntry
     public $totalPoints;
     public $position;
     public $class;
-
+    public $driverID;
+    public $carID;
+    public $teamID;
     public function __constructor($db)
     {
         $this->conn = $db;
@@ -25,7 +27,10 @@ class ChampionshipEntry
         championshipID = :championshipID, 
         totalPoints = :totalPoints, 
         position = :position, 
-        class = :class';
+        class = :class,
+        driverID = :driverID,
+        carID = :carID,
+        teamID = :teamID';
 
         //Statment
         $stmt = $this->conn->prepare($query);
@@ -36,14 +41,18 @@ class ChampionshipEntry
         $this->totalPoints = htmlspecialchars(strip_tags($this->totalPoints));
         $this->position = htmlspecialchars(strip_tags($this->position));
         $this->class = htmlspecialchars(strip_tags($this->class));
-
+        $this->driverID = htmlspecialchars(strip_tags($this->driverID));
+        $this->carID = htmlspecialchars(strip_tags($this->carID));
+        $this->teamID = htmlspecialchars(strip_tags($this->teamID));
 
         //Bind the dada
         $stmt->bindParam(':championshipID', $this->championshipID);
         $stmt->bindParam(':totalPoints', $this->totalPoints);
         $stmt->bindParam(':position', $this->position);
         $stmt->bindParam(':class', $this->class);
-
+        $stmt->bindParam(':driverID' , $this->driverID);
+        $stmt->bindParam(':carID', $this->carID);
+        $stmt->bindParam(':teamID', $this->teamID);
 
         //Execute Query
 
@@ -75,12 +84,18 @@ class ChampionshipEntry
         $this->position = htmlspecialchars(strip_tags($this->position));
         $this->class = htmlspecialchars(strip_tags($this->class));
         $this->championshipEntryID = htmlspecialchars(strip_tags($this->championshipEntryID));
+        $this->driverID = htmlspecialchars(strip_tags($this->driverID));
+        $this->carID = htmlspecialchars(strip_tags($this->carID));
+        $this->teamID = htmlspecialchars(strip_tags($this->teamID));
 
         //Bind the dada
         $stmt->bindParam(':totalPoints', $this->totalPoints);
         $stmt->bindParam(':position', $this->position);
         $stmt->bindParam(':class', $this->class);
         $stmt->bindParam(':championshipEntryID', $this->championshipEntryID);
+        $stmt->bindParam(':driverID' , $this->driverID);
+        $stmt->bindParam(':carID', $this->carID);
+        $stmt->bindParam(':teamID', $this->teamID);
 
         //Execute Query
 
@@ -97,7 +112,10 @@ class ChampionshipEntry
     public function getChampionshipEntryByID(): void
     {
         $query = 'SELECT * 
-                  FROM ' . $this->table . '
+                  FROM championshipentry join car c on c.carID = championshipentry.carID,
+                       championshipentry join driver d on championshipentry.driverID = d.driverID,
+                       championshipentry join team t on championshipentry.teamID = t.teamID,
+                       championshipentry join championship c2 on championshipentry.championshipID = c2.championshipID               
                   WHERE ChampionshipEntryID = :ChampionshipEntryID';
         //Prepare Statement
 

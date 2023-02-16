@@ -11,7 +11,7 @@ class Driver
     public $driverID;
     public $firstName;
     public $lastName;
-    public $country;
+    public $driverCountry;
     public $dateOfBirth;
     public $driverWebsite;
     public $driverTwitter;
@@ -47,7 +47,7 @@ class Driver
         SET 
         firstName = :firstName, 
         lastName = :lastName, 
-        country = :country, 
+        driverCountry = :driverCountry, 
         dateOfBirth = :dateOfBirth,
         driverWebsite = :driverWebsite,
         driverTwitter = :driverTwitter, 
@@ -62,7 +62,7 @@ class Driver
 
         $this->firstName = htmlspecialchars(strip_tags($this->firstName));
         $this->lastName = htmlspecialchars(strip_tags($this->lastName));
-        $this->country = htmlspecialchars(strip_tags($this->country));
+        $this->driverCountry = htmlspecialchars(strip_tags($this->driverCountry));
         $this->dateOfBirth = htmlspecialchars(strip_tags($this->dateOfBirth));
         $this->driverWebsite = htmlspecialchars(strip_tags($this->driverWebsite));
         $this->driverTwitter = htmlspecialchars(strip_tags($this->driverTwitter));
@@ -74,7 +74,7 @@ class Driver
         //Bind the dada
         $stmt->bindParam(':firstName', $this->firstName);
         $stmt->bindParam(':lastName', $this->lastName);
-        $stmt->bindParam(':country', $this->country);
+        $stmt->bindParam(':driverCountry', $this->driverCountry);
         $stmt->bindParam(':dateOfBirth', $this->dateOfBirth);
         $stmt->bindParam(':driverWebsite', $this->driverWebsite);
         $stmt->bindParam(':driverTwitter', $this->driverTwitter);
@@ -100,7 +100,7 @@ class Driver
         SET 
         firstName = :firstName, 
         lastName = :lastName, 
-        country = :country, 
+        driverCountry = :driverCountry, 
         dateOfBirth = :dateOfBirth,
         driverWebsite = :driverWebsite,
         driverTwitter = :driverTwitter, 
@@ -117,7 +117,7 @@ class Driver
 
         $this->firstName = htmlspecialchars(strip_tags($this->firstName));
         $this->lastName = htmlspecialchars(strip_tags($this->lastName));
-        $this->country = htmlspecialchars(strip_tags($this->country));
+        $this->driverCountry = htmlspecialchars(strip_tags($this->driverCountry));
         $this->dateOfBirth = htmlspecialchars(strip_tags($this->dateOfBirth));
         $this->driverWebsite = htmlspecialchars(strip_tags($this->driverWebsite));
         $this->driverTwitter = htmlspecialchars(strip_tags($this->driverTwitter));
@@ -129,7 +129,7 @@ class Driver
         //Bind the dada
         $stmt->bindParam(':firstName', $this->firstName);
         $stmt->bindParam(':lastName', $this->lastName);
-        $stmt->bindParam(':country', $this->country);
+        $stmt->bindParam(':driverCountry', $this->driverCountry);
         $stmt->bindParam(':dateOfBirth', $this->dateOfBirth);
         $stmt->bindParam(':driverWebsite', $this->driverWebsite);
         $stmt->bindParam(':driverTwitter', $this->driverTwitter);
@@ -171,7 +171,7 @@ class Driver
         $this->driverID = $row['driverID'];
         $this->firstName = $row['firstName'];
         $this->lastName = $row['lastName'];
-        $this->country = $row['country'];
+        $this->driverCountry = $row['driverCountry'];
         $this->dateOfBirth = $row['dateOfBirth'];
         $this->driverWebsite = $row['driverWebsite'];
         $this->driverTwitter = $row['driverTwitter'];

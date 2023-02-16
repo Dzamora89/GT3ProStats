@@ -9,13 +9,13 @@ class Championship
 
     //Properties
     public $championshipID;
-    public $name;
-    public $country;
-    public $website;
-    public $twitter;
-    public $facebook;
-    public $youtube;
-    public $season;
+    public $championshipName;
+    public $championshipCountry;
+    public $championshipWebsite;
+    public $championshipTwitter;
+    public $championshipFacebook;
+    public $championshipYoutube;
+    public $championshipSeason;
 
     public function __construct($db)
     {
@@ -42,35 +42,35 @@ class Championship
     {
         $query = 'INSERT INTO ' . $this->table . ' 
         SET 
-        name = :name, 
-        country = :country, 
-        website = :website, 
-        twitter = :twitter,
-        facebook = :facebook,
-        youtube = :youtube,
-        season = :season';
+        championshipName = :championshipName, 
+        championshipCountry = :championshipCountry, 
+        championshipWebsite = :championshipWebsite, 
+        championshipTwitter = :championshipTwitter,
+        championshipFacebook = :championshipFacebook,
+        championshipYoutube = :championshipYoutube,
+        championshipSeason = :championshipSeason';
 
         //Statment
         $stmt = $this->conn->prepare($query);
 
         //Clean UP data
 
-        $this->name = htmlspecialchars(strip_tags($this->name));
-        $this->country = htmlspecialchars(strip_tags($this->country));
-        $this->website = htmlspecialchars(strip_tags($this->website));
-        $this->twitter = htmlspecialchars(strip_tags($this->twitter));
-        $this->facebook = htmlspecialchars(strip_tags($this->facebook));
-        $this->youtube = htmlspecialchars(strip_tags($this->youtube));
-        $this->season = htmlspecialchars(strip_tags($this->season));
+        $this->championshipName = htmlspecialchars(strip_tags($this->championshipName));
+        $this->championshipCountry = htmlspecialchars(strip_tags($this->championshipCountry));
+        $this->championshipWebsite = htmlspecialchars(strip_tags($this->championshipWebsite));
+        $this->championshipTwitter = htmlspecialchars(strip_tags($this->championshipTwitter));
+        $this->championshipFacebook = htmlspecialchars(strip_tags($this->championshipFacebook));
+        $this->championshipYoutube = htmlspecialchars(strip_tags($this->championshipYoutube));
+        $this->championshipSeason = htmlspecialchars(strip_tags($this->championshipSeason));
 
         //Bind the dada
-        $stmt->bindParam(':name', $this->name);
-        $stmt->bindParam(':country', $this->country);
-        $stmt->bindParam(':website', $this->website);
-        $stmt->bindParam(':twitter', $this->twitter);
-        $stmt->bindParam(':facebook', $this->facebook);
-        $stmt->bindParam(':youtube', $this->youtube);
-        $stmt->bindParam(':season', $this->season);
+        $stmt->bindParam(':championshipName', $this->championshipName);
+        $stmt->bindParam(':championshipCountry', $this->championshipCountry);
+        $stmt->bindParam(':championshipWebsite', $this->championshipWebsite);
+        $stmt->bindParam(':championshipTwitter', $this->championshipTwitter);
+        $stmt->bindParam(':championshipFacebook', $this->championshipFacebook);
+        $stmt->bindParam(':championshipYoutube', $this->championshipYoutube);
+        $stmt->bindParam(':championshipSeason', $this->championshipSeason);
 
         //Execute Query
 
@@ -87,13 +87,13 @@ class Championship
     {
         $query = 'UPDATE ' . $this->table . ' 
         SET 
-        name = :name, 
-        country = :country, 
-        website = :website, 
-        twitter = :twitter,
-        facebook = :facebook,
-        youtube = :youtube,
-        season = :season
+        championshipName = :championshipName, 
+        championshipCountry = :championshipCountry, 
+        championshipWebsite = :championshipWebsite, 
+        championshipTwitter = :championshipTwitter,
+        championshipFacebook = :championshipFacebook,
+        championshipYoutube = :championshipYoutube,
+        championshipSeason = :championshipSeason
         WHERE
         championshipID = :championshipID';
 
@@ -102,23 +102,23 @@ class Championship
 
         //Clean UP data
         $this->championshipID = htmlspecialchars(strip_tags($this->championshipID));
-        $this->name = htmlspecialchars(strip_tags($this->name));
-        $this->country = htmlspecialchars(strip_tags($this->country));
-        $this->website = htmlspecialchars(strip_tags($this->website));
-        $this->twitter = htmlspecialchars(strip_tags($this->twitter));
-        $this->facebook = htmlspecialchars(strip_tags($this->facebook));
-        $this->youtube = htmlspecialchars(strip_tags($this->youtube));
-        $this->season = htmlspecialchars(strip_tags($this->season));
+        $this->championshipName = htmlspecialchars(strip_tags($this->championshipName));
+        $this->championshipCountry = htmlspecialchars(strip_tags($this->championshipCountry));
+        $this->championshipWebsite = htmlspecialchars(strip_tags($this->championshipWebsite));
+        $this->championshipTwitter = htmlspecialchars(strip_tags($this->championshipTwitter));
+        $this->championshipFacebook = htmlspecialchars(strip_tags($this->championshipFacebook));
+        $this->championshipYoutube = htmlspecialchars(strip_tags($this->championshipYoutube));
+        $this->championshipSeason = htmlspecialchars(strip_tags($this->championshipSeason));
 
         //Bind the dada
         $stmt->bindParam('championshipID', $this->championshipID);
-        $stmt->bindParam(':name', $this->name);
-        $stmt->bindParam(':country', $this->country);
-        $stmt->bindParam(':website', $this->website);
-        $stmt->bindParam(':twitter', $this->twitter);
-        $stmt->bindParam(':facebook', $this->facebook);
-        $stmt->bindParam(':youtube', $this->youtube);
-        $stmt->bindParam(':season', $this->season);
+        $stmt->bindParam(':championshipName', $this->championshipName);
+        $stmt->bindParam(':championshipCountry', $this->championshipCountry);
+        $stmt->bindParam(':championshipWebsite', $this->championshipWebsite);
+        $stmt->bindParam(':championshipTwitter', $this->championshipTwitter);
+        $stmt->bindParam(':championshipFacebook', $this->championshipFacebook);
+        $stmt->bindParam(':championshipYoutube', $this->championshipYoutube);
+        $stmt->bindParam(':championshipSeason', $this->championshipSeason);
 
 
         //Execute Query
@@ -152,13 +152,13 @@ class Championship
 
         //SetProperties
         $this->championshipID = $row['championshipID'];
-        $this->name = $row['name'];
-        $this->country = $row['country'];
-        $this->website = $row['website'];
-        $this->twitter = $row['twitter'];
-        $this->facebook = $row['facebook'];
-        $this->youtube = $row['youtube'];
-        $this->season = $row['season'];
+        $this->championshipName = $row['championshipName'];
+        $this->championshipCountry = $row['championshipchampionshipCountry'];
+        $this->championshipWebsite = $row['championshipWebsite'];
+        $this->championshipTwitter = $row['championshipTwitter'];
+        $this->championshipFacebook = $row['championshipFacebook'];
+        $this->championshipYoutube = $row['championshipYoutube'];
+        $this->championshipSeason = $row['championshipSeason'];
 
     }
 

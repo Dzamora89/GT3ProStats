@@ -22,13 +22,13 @@ $championship = new Championship($db);
 
 $data = json_decode(file_get_contents("php://input"));
 $championship->championshipID = $data->championshipID;
-$championship->name = $data->name;
-$championship->youtube = $data->youtube;
-$championship->facebook = $data->facebook;
-$championship->twitter = $data->twitter;
-$championship->website = $data->website;
-$championship->country = $data->country;
-$championship->season = $data->season;
+$championship->championshipName = $data->championshipName;
+$championship->championshipYoutube = $data->championshipYoutube;
+$championship->championshipFacebook = $data->championshipFacebook;
+$championship->championshipTwitter = $data->championshipTwitter;
+$championship->championshipWebsite = $data->championshipWebsite;
+$championship->championshipCountry = $data->championshipCountry;
+$championship->championshipSeason = $data->championshipSeason;
 
 // Update
 

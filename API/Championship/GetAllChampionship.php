@@ -29,13 +29,13 @@ if ($rowNumber > 0) {
         extract($row);
         $championship_item = array(
             'championshipID' => $championshipID,
-            'name' => $name,
-            'youtube' => $youtube,
-            'facebook' => $facebook,
-            'twitter' => $twitter,
-            'website' => $website,
-            'country' => $country,
-            'season' => $season);
+            'championshipName' => $championshipName,
+            'championshipYoutube' => $championshipYoutube,
+            'championshipFacebook' => $championshipFacebook,
+            'championshipTwitter' => $championshipTwitter,
+            'championshipWebsite' => $championshipWebsite,
+            'championshipCountry' => $championshipCountry,
+            'championshipSeason' => $championshipSeason);
         // Push Data This work the same as array_push() https://www.php.net/manual/es/function.array-push.php
 //        $post_Array['Data'][] = $driver_item;
         $championship_Array[] = $championship_item;

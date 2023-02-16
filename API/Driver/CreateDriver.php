@@ -24,7 +24,7 @@ $data = json_decode(file_get_contents("php://input"));
 
 $driver->firstName = $data->firstName;
 $driver->lastName = $data->lastName;
-$driver->country = $data->country;
+$driver->driverCountry = $data->driverCountry;
 $driver->dateOfBirth = $data->dateOfBirth;
 $driver->driverWebsite = $data->driverWebsite;
 $driver->driverTwitter = $data->driverTwitter;

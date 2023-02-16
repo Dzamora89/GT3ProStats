@@ -21,12 +21,12 @@ $championship->getChampionshipByID();
 
 $championship_Array = array(
     'championshipID' => $championship->championshipID,
-    'country' => $championship->country,
-    'youtube' => $championship->youtube,
-    'twitter' => $championship->twitter,
-    'website' => $championship->website,
-    'name' => $championship->name,
-    'facebook' => $championship->facebook,
-    'season' => $championship->season);
+    'championshipCountry' => $championship->championshipCountry,
+    'championshipYoutube' => $championship->championshipYoutube,
+    'championshipTwitter' => $championship->championshipTwitter,
+    'championshipWebsite' => $championship->championshipWebsite,
+    'championshipName' => $championship->championshipName,
+    'championshipFacebook' => $championship->championshipFacebook,
+    'championshipSeason' => $championship->championshipSeason);
 
 print_r(json_encode($championship_Array));
