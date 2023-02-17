@@ -28,10 +28,10 @@ class ChampionshipEntry
         championshipEntryChampionshipID = :championshipEntryChampionshipID, 
         championshipEntryTotalPoints = :championshipEntryTotalPoints, 
         championshipEntryPosition = :championshipEntryPosition, 
-        class = :class,
-        driverID = :driverID,
-        carID = :carID,
-        teamID = :teamID';
+        $championshipEntryClass = :$championshipEntryClass,
+        championshipEntryDriverID = :championshipEntryDriverID,
+        championshipEntryCarID = :championshipEntryCarID,
+        championshipEntryTeamID = :championshipEntryTeamID';
 
         //Statment
         $stmt = $this->conn->prepare($query);
@@ -41,19 +41,19 @@ class ChampionshipEntry
         $this->championshipEntryChampionshipID = htmlspecialchars(strip_tags($this->championshipEntryChampionshipID));
         $this->championshipEntryTotalPoints = htmlspecialchars(strip_tags($this->championshipEntryTotalPoints));
         $this->championshipEntryPosition = htmlspecialchars(strip_tags($this->championshipEntryPosition));
-        $this->class = htmlspecialchars(strip_tags($this->class));
-        $this->driverID = htmlspecialchars(strip_tags($this->driverID));
-        $this->carID = htmlspecialchars(strip_tags($this->carID));
-        $this->teamID = htmlspecialchars(strip_tags($this->teamID));
+        $this->championshipEntryClass = htmlspecialchars(strip_tags($this->championshipEntryClass));
+        $this->championshipEntryDriverID = htmlspecialchars(strip_tags($this->championshipEntryDriverID));
+        $this->championshipEntryCarID = htmlspecialchars(strip_tags($this->championshipEntryCarID));
+        $this->championshipEntryTeamID = htmlspecialchars(strip_tags($this->championshipEntryTeamID));
 
         //Bind the dada
         $stmt->bindParam(':championshipEntryChampionshipID', $this->championshipEntryChampionshipID);
         $stmt->bindParam(':championshipEntryTotalPoints', $this->championshipEntryTotalPoints);
         $stmt->bindParam(':championshipEntryPosition', $this->championshipEntryPosition);
-        $stmt->bindParam(':class', $this->class);
-        $stmt->bindParam(':driverID', $this->driverID);
-        $stmt->bindParam(':carID', $this->carID);
-        $stmt->bindParam(':teamID', $this->teamID);
+        $stmt->bindParam(':championshipEntryClass', $this->championshipEntryClass);
+        $stmt->bindParam(':championshipEntryDriverID', $this->championshipEntryDriverID);
+        $stmt->bindParam(':championshipEntryCarID', $this->championshipEntryCarID);
+        $stmt->bindParam(':championshipEntryTeamID', $this->championshipEntryTeamID);
 
         //Execute Query
 
@@ -72,7 +72,7 @@ class ChampionshipEntry
         SET 
         championshipEntryTotalPoints = :championshipEntryTotalPoints, 
         championshipEntryPosition = :championshipEntryPosition, 
-        class = :class
+        championshipEntryClass = :championshipEntryClass
         WHERE
         championshipEntryID = :championshipEntryID';
 
@@ -83,20 +83,20 @@ class ChampionshipEntry
 
         $this->championshipEntryTotalPoints = htmlspecialchars(strip_tags($this->championshipEntryTotalPoints));
         $this->championshipEntryPosition = htmlspecialchars(strip_tags($this->championshipEntryPosition));
-        $this->class = htmlspecialchars(strip_tags($this->class));
+        $this->championshipEntryClass = htmlspecialchars(strip_tags($this->championshipEntryClass));
         $this->championshipEntryID = htmlspecialchars(strip_tags($this->championshipEntryID));
-        $this->driverID = htmlspecialchars(strip_tags($this->driverID));
-        $this->carID = htmlspecialchars(strip_tags($this->carID));
-        $this->teamID = htmlspecialchars(strip_tags($this->teamID));
+        $this->championshipEntryDriverID = htmlspecialchars(strip_tags($this->championshipEntryDriverID));
+        $this->championshipEntryCarID = htmlspecialchars(strip_tags($this->championshipEntryCarID));
+        $this->championshipEntryTeamID = htmlspecialchars(strip_tags($this->championshipEntryTeamID));
 
         //Bind the dada
         $stmt->bindParam(':championshipEntryTotalPoints', $this->championshipEntryTotalPoints);
         $stmt->bindParam(':championshipEntryPosition', $this->championshipEntryPosition);
-        $stmt->bindParam(':class', $this->class);
+        $stmt->bindParam(':championshipEntryClass', $this->championshipEntryClass);
         $stmt->bindParam(':championshipEntryID', $this->championshipEntryID);
-        $stmt->bindParam(':driverID', $this->driverID);
-        $stmt->bindParam(':carID', $this->carID);
-        $stmt->bindParam(':teamID', $this->teamID);
+        $stmt->bindParam(':championshipEntryDriverID', $this->championshipEntryDriverID);
+        $stmt->bindParam(':championshipEntryCarID', $this->championshipEntryCarID);
+        $stmt->bindParam(':championshipEntryTeamID', $this->championshipEntryTeamID);
 
         //Execute Query
 
@@ -112,11 +112,12 @@ class ChampionshipEntry
     // Get Single Object
     public function getChampionshipEntryByID(): void
     {
+        //Todo: Revisar la Query
         $query = 'SELECT * 
-                  FROM championshipentry join car c on c.carID = championshipentry.carID,
-                       championshipentry join driver d on championshipentry.driverID = d.driverID,
+                  FROM championshipentry join car c on c.carID = championshipentry.championshipEntryCarID,
+                       championshipentry join driver d on championshipentry.championshipEntryDriverID = d.driverID,
                        championshipentry join team t on championshipentry.teamID = t.teamID,
-                       championshipentry join championship c2 on championshipentry.championshipID = c2.championshipID               
+                       championshipentry join championship c2 on championshipentry.championshipentryChampionshipID = c2.championshipID               
                   WHERE ChampionshipEntryID = :ChampionshipEntryID';
         //Prepare Statement
 
@@ -133,7 +134,7 @@ class ChampionshipEntry
         //SetProperties
         $this->championshipEntryChampionshipID = $row['championshipEntryChampionshipID'];
         $this->championshipEntryID = $row['championshipEntryID'];
-        $this->class = $row['class'];
+        $this->championshipEntryClass = $row['championshipEntryClass'];
         $this->championshipEntryPosition = $row['championshipEntryPosition'];
         $this->championshipEntryTotalPoints = $row['championshipEntryTotalPoints'];
 

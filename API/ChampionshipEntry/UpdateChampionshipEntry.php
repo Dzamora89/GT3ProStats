@@ -22,10 +22,10 @@ $championshipEntry = new ChampionshipEntry($db);
 
 $data = json_decode(file_get_contents("php://input"));
 $championshipEntry->championshipEntryID = $data->championshipEntryID;
-$championshipEntry->championshipID = $data->championshipID;
-$championshipEntry->totalPoints = $data->totalPoints;
-$championshipEntry->position = $data->position;
-$championshipEntry->class = $data->class;
+$championshipEntry->championshipEntryChampionshipID = $data->championshipEntryChampionshipID;
+$championshipEntry->championshipEntryTotalPoints = $data->championshipEntryTotalPoints;
+$championshipEntry->championshipEntryPosition = $data->championshipEntryPosition;
+$championshipEntry->championshipEntryClass = $data->championshipEntryclass;
 
 // Update
 

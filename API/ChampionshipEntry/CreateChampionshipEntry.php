@@ -17,15 +17,15 @@ $db = $database->connect();
 //Initialize the driver
 $championshipEntry = new ChampionshipEntry($db);
 
-
+//TODO Hacer bien los datos, no esta completo.
 // Get de raw posted data
 $data = json_decode(file_get_contents("php://input"));
 
 
-$championshipEntry->championshipID = $data->championshipID;
-$championshipEntry->totalPoints = $data->totalPoints;
-$championshipEntry->position = $data->position;
-$championshipEntry->class = $data->class;
+$championshipEntry->championshipEntryChampionshipID = $data->championshipEntryChampionshipID;
+$championshipEntry->championshipEntryTotalPoints = $data->championshipEntryTotalPoints;
+$championshipEntry->championshipEntryPosition = $data->championshipEntryPosition;
+$championshipEntry->championshipEntryClass = $data->championshipEntryClass;
 //Create
 if ($championshipEntry->createChampionshipEntry()) {
     echo json_encode(array('message' => 'championshipEntry Created'));

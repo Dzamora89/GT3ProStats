@@ -21,9 +21,9 @@ $championshipEntry->getChampionshipEntryByID();
 
 $championshipEntry_Array = array(
     'championshipEntryID' => $championshipEntry->championshipEntryID,
-    'championshipID' => $championshipEntry->championshipID,
-    'totalPoints' => $championshipEntry->totalPoints,
-    'position' => $championshipEntry->position,
-    'class' => $championshipEntry->class);
+    'championshipEntryChampionshipID' => $championshipEntry->championshipEntryChampionshipID,
+    'championshipEntryTotalPoints' => $championshipEntry->championshipEntrytotalPoints,
+    'championshipEntryPosition' => $championshipEntry->championshipEntryPosition,
+    'championshipEntryClass' => $championshipEntry->championshipEntryClass);
 
 print_r(json_encode($championshipEntry_Array));
