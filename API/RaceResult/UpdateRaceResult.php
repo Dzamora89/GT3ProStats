@@ -21,12 +21,12 @@ $raceResult = new RaceResult($db);
 $data = json_decode(file_get_contents("php://input"));
 
 $raceResult->raceResultID = $data->raceResultID;
-$raceResult->carID = $data->carID;
-$raceResult->raceID = $data->raceID;
-$raceResult->totalTime = $data->totalTime;
-$raceResult->laps = $data->laps;
-$raceResult->pointScored = $data->pointScored;
-$raceResult->eloChanged = $data->eloChanged;
+$raceResult->raceResultCarID = $data->raceResultCarID;
+$raceResult->raceResultRaceID = $data->raceResultRaceID;
+$raceResult->raceResultTotalTime = $data->raceResultTotalTime;
+$raceResult->raceResultLaps = $data->raceResultLaps;
+$raceResult->raceResultPointScored = $data->raceResultPointScored;
+$raceResult->raceResultEloChanged = $data->raceResultEloChanged;
 
 //Create the race
 if ($raceResult->updateRaceResult()) {

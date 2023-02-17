@@ -20,11 +20,11 @@ $raceResult->getRaceResultByID();
 
 $raceResult_Array = array(
     'raceResultID' => $raceResult->raceResultID,
-    'carID' => $raceResult->carID,
-    'raceID' => $raceResult->raceID,
-    'totalTime' => $raceResult->totalTime,
-    'laps' => $raceResult->laps,
-    'pointScored' => $raceResult->pointScored,
-    'eloChanged' => $raceResult->eloChanged);
+    'raceResultCarID' => $raceResult->raceResultCarID,
+    'raceResultRaceID' => $raceResult->raceResultRaceID,
+    'raceResultTotalTime' => $raceResult->raceResultTotalTime,
+    'raceResultLaps' => $raceResult->raceResultLaps,
+    'raceResultPointScored' => $raceResult->raceResultPointScored,
+    'raceResultEloChanged' => $raceResult->raceResultEloChanged);
 
 print_r(json_encode($raceResult_Array));
