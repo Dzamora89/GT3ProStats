@@ -30,14 +30,12 @@ if ($rowNumber > 0) {
         extract($row);
         $race_item = array(
             'raceID' => $raceID,
-            'track' => $track,
-            'dateOfRace' => $dateOfRace,
-            'country' => $country,
-            'name' => $name
+            'raceTrack' => $raceTrack,
+            'raceDateOfRace' => $raceDateOfRace,
+            'raceCountry' => $raceCountry,
+            'raceChampionshipID' => $raceChampionshipID
         );
-        // Push Data This work the same as array_push() https://www.php.net/manual/es/function.array-push.php
-//        $post_Array['Data'][] = $Race_item;
-        array_push($race_Array, $race_item);
+        $race_Array[] = $race_item;
     }
     //Turn into Json & Output
     echo json_encode($race_Array);

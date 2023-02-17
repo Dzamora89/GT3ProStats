@@ -22,10 +22,10 @@ $car = new Car($db);
 // Get de raw posted data
 $data = json_decode(file_get_contents("php://input"));
 
-$car->classCar = $data->classCar;
-$car->number = $data->number;
-$car->teamID = $data->teamID;
-$car->manufacturer = $data->manufacturer;
+$car->carClass = $data->carClass;
+$car->carNumber = $data->carNumber;
+$car->carTeamID = $data->carTeamID;
+$car->carManufacturer = $data->carManufacturer;
 
 //Create the car
 if ($car->createCar()) {

@@ -9,10 +9,10 @@ class Race
 
     // Properties
     public $raceID;
-    public $track;
-    public $dateOfRace;
-    public $country;
-    public $championshipID;
+    public $raceTrack;
+    public $raceDateOfRace;
+    public $raceCountry;
+    public $raceChampionshipID;
 
     public function __construct($db)
     {
@@ -23,28 +23,27 @@ class Race
     {
         $query = 'INSERT INTO ' . $this->table . ' 
         SET 
-        track = :track,
-        dateOfRace = :dateOfRace,
-        country = :country,
-        championshipID = :championshipID
-        ';
+        raceTrack = :raceTrack,
+        raceDateOfRace = :raceDateOfRace,
+        raceCountry = :raceCountry,
+        raceChampionshipID = :raceChampionshipID';
 
         //Statement
         $stmt = $this->conn->prepare($query);
 
         //Clean UP data
 
-        $this->track = htmlspecialchars(strip_tags($this->track));
-        $this->country = htmlspecialchars(strip_tags($this->country));
-        $this->dateOfRace = htmlspecialchars(strip_tags($this->dateOfRace));
-        $this->championshipID = htmlspecialchars(strip_tags($this->championshipID));
+        $this->raceTrack = htmlspecialchars(strip_tags($this->raceTrack));
+        $this->raceCountry = htmlspecialchars(strip_tags($this->raceCountry));
+        $this->raceDateOfRace = htmlspecialchars(strip_tags($this->raceDateOfRace));
+        $this->raceChampionshipID = htmlspecialchars(strip_tags($this->raceChampionshipID));
 
 
         //Bind the dada
-        $stmt->bindParam(':track', $this->track);
-        $stmt->bindParam(':country', $this->country);
-        $stmt->bindParam(':dateOfRace', $this->dateOfRace);
-        $stmt->bindParam(':championshipID', $this->championshipID);
+        $stmt->bindParam(':raceTrack', $this->raceTrack);
+        $stmt->bindParam(':raceCountry', $this->raceCountry);
+        $stmt->bindParam(':raceDateOfRace', $this->raceDateOfRace);
+        $stmt->bindParam(':raceChampionshipID', $this->raceChampionshipID);
 
 
         //Execute Query
@@ -62,10 +61,10 @@ class Race
     {
         $query = 'UPDATE ' . $this->table . ' 
         SET 
-        track = :track,
-        dateOfRace = :dateOfRace,
-        country = :country,
-        championshipID = :championshipID
+        raceTrack = :raceTrack,
+        raceDateOfRace = :raceDateOfRace,
+        raceCountry = :raceCountry,
+        raceChampionshipID = :raceChampionshipID
         WHERE
         raceID = :raceID';
 
@@ -74,17 +73,17 @@ class Race
 
         //Clean UP data
         $this->raceID = htmlspecialchars(strip_tags($this->raceID));
-        $this->track = htmlspecialchars(strip_tags($this->track));
-        $this->country = htmlspecialchars(strip_tags($this->country));
-        $this->dateOfRace = htmlspecialchars(strip_tags($this->dateOfRace));
-        $this->championshipID = htmlspecialchars(strip_tags($this->championshipID));
+        $this->raceTrack = htmlspecialchars(strip_tags($this->raceTrack));
+        $this->raceCountry = htmlspecialchars(strip_tags($this->raceCountry));
+        $this->raceDateOfRace = htmlspecialchars(strip_tags($this->raceDateOfRace));
+        $this->raceChampionshipID = htmlspecialchars(strip_tags($this->raceChampionshipID));
 
         //Bind the dada
         $stmt->bindParam(':raceID', $this->raceID);
-        $stmt->bindParam(':track', $this->track);
-        $stmt->bindParam(':country', $this->country);
-        $stmt->bindParam(':dateOfRace', $this->dateOfRace);
-        $stmt->bindParam(':championshipID', $this->championshipID);
+        $stmt->bindParam(':raceTrack', $this->raceTrack);
+        $stmt->bindParam(':raceCountry', $this->raceCountry);
+        $stmt->bindParam(':raceDateOfRace', $this->raceDateOfRace);
+        $stmt->bindParam(':raceChampionshipID', $this->raceChampionshipID);
 
         //Execute Query
 
@@ -116,24 +115,24 @@ class Race
 
         //SetProperties
         $this->raceID = $row['raceID'];
-        $this->track = $row['track'];
-        $this->championshipID = $row['championshipID'];
-        $this->country = $row['country'];
-        $this->dateOfRace = $row['dateOfRace'];
+        $this->raceTrack = $row['raceTrack'];
+        $this->raceChampionshipID = $row['raceChampionshipID'];
+        $this->raceCountry = $row['raceCountry'];
+        $this->raceDateOfRace = $row['raceDateOfRace'];
     }
 
     public function getRaceBychampionshipID()
     {
         $query = 'SELECT * 
                   FROM ' . $this->table . '
-                  WHERE championshipID = :championshipID';
+                  WHERE raceChampionshipID = :raceChampionshipID';
         //Prepare Statement
 
         $stmt = $this->conn->prepare($query);
 
         //Bind ID
 
-        $stmt->bindParam(':championshipID', $this->championshipID);
+        $stmt->bindParam(':raceChampionshipID', $this->raceChampionshipID);
         $stmt->execute();
         return $stmt;
     }
@@ -167,8 +166,8 @@ class Race
     public function getAllRaces()
     {
         //Create the Query
-        $query = 'SELECT * FROM race r JOIN championship c ON r.championshipID = c.championshipID
-                ORDER BY dateOfRace';
+        $query = 'SELECT * FROM race r JOIN championship c ON r.raceChampionshipID = c.ChampionshipID
+                ORDER BY raceDateOfRace';
         //Prepare Statment
         $stmt = $this->conn->prepare($query);
 

@@ -25,8 +25,8 @@ $driver->getDriverByID();
 //Create Array
 $driver_Array = array(
     'driverID' => $driver->driverID,
-    'firstName' => $driver->firstName,
-    'lastName' => $driver->lastName,
+    'driverFirstName' => $driver->driverFirstName,
+    'driverLastName' => $driver->driverLastName,
     'driverCountry' => $driver->driverCountry,
     'dateOfBirth' => $driver->dateOfBirth,
     'driverWebsite' => $driver->driverWebsite,

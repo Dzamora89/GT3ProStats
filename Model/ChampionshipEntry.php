@@ -8,13 +8,14 @@ class ChampionshipEntry
 
     //
     public $championshipEntryID;
-    public $championshipID;
-    public $totalPoints;
-    public $position;
-    public $class;
-    public $driverID;
-    public $carID;
-    public $teamID;
+    public $championshipEntryChampionshipID;
+    public $championshipEntryTotalPoints;
+    public $championshipEntryPosition;
+    public $championshipEntryClass;
+    public $championshipEntryDriverID;
+    public $championshipEntryCarID;
+    public $championshipEntryTeamID;
+
     public function __constructor($db)
     {
         $this->conn = $db;
@@ -24,9 +25,9 @@ class ChampionshipEntry
     {
         $query = 'INSERT INTO ' . $this->table . ' 
         SET 
-        championshipID = :championshipID, 
-        totalPoints = :totalPoints, 
-        position = :position, 
+        championshipEntryChampionshipID = :championshipEntryChampionshipID, 
+        championshipEntryTotalPoints = :championshipEntryTotalPoints, 
+        championshipEntryPosition = :championshipEntryPosition, 
         class = :class,
         driverID = :driverID,
         carID = :carID,
@@ -37,20 +38,20 @@ class ChampionshipEntry
 
         //Clean UP data
 
-        $this->championshipID = htmlspecialchars(strip_tags($this->championshipID));
-        $this->totalPoints = htmlspecialchars(strip_tags($this->totalPoints));
-        $this->position = htmlspecialchars(strip_tags($this->position));
+        $this->championshipEntryChampionshipID = htmlspecialchars(strip_tags($this->championshipEntryChampionshipID));
+        $this->championshipEntryTotalPoints = htmlspecialchars(strip_tags($this->championshipEntryTotalPoints));
+        $this->championshipEntryPosition = htmlspecialchars(strip_tags($this->championshipEntryPosition));
         $this->class = htmlspecialchars(strip_tags($this->class));
         $this->driverID = htmlspecialchars(strip_tags($this->driverID));
         $this->carID = htmlspecialchars(strip_tags($this->carID));
         $this->teamID = htmlspecialchars(strip_tags($this->teamID));
 
         //Bind the dada
-        $stmt->bindParam(':championshipID', $this->championshipID);
-        $stmt->bindParam(':totalPoints', $this->totalPoints);
-        $stmt->bindParam(':position', $this->position);
+        $stmt->bindParam(':championshipEntryChampionshipID', $this->championshipEntryChampionshipID);
+        $stmt->bindParam(':championshipEntryTotalPoints', $this->championshipEntryTotalPoints);
+        $stmt->bindParam(':championshipEntryPosition', $this->championshipEntryPosition);
         $stmt->bindParam(':class', $this->class);
-        $stmt->bindParam(':driverID' , $this->driverID);
+        $stmt->bindParam(':driverID', $this->driverID);
         $stmt->bindParam(':carID', $this->carID);
         $stmt->bindParam(':teamID', $this->teamID);
 
@@ -69,8 +70,8 @@ class ChampionshipEntry
     {
         $query = 'UPDATE ' . $this->table . ' 
         SET 
-        totalPoints = :totalPoints, 
-        position = :position, 
+        championshipEntryTotalPoints = :championshipEntryTotalPoints, 
+        championshipEntryPosition = :championshipEntryPosition, 
         class = :class
         WHERE
         championshipEntryID = :championshipEntryID';
@@ -80,8 +81,8 @@ class ChampionshipEntry
 
         //Clean UP data
 
-        $this->totalPoints = htmlspecialchars(strip_tags($this->totalPoints));
-        $this->position = htmlspecialchars(strip_tags($this->position));
+        $this->championshipEntryTotalPoints = htmlspecialchars(strip_tags($this->championshipEntryTotalPoints));
+        $this->championshipEntryPosition = htmlspecialchars(strip_tags($this->championshipEntryPosition));
         $this->class = htmlspecialchars(strip_tags($this->class));
         $this->championshipEntryID = htmlspecialchars(strip_tags($this->championshipEntryID));
         $this->driverID = htmlspecialchars(strip_tags($this->driverID));
@@ -89,11 +90,11 @@ class ChampionshipEntry
         $this->teamID = htmlspecialchars(strip_tags($this->teamID));
 
         //Bind the dada
-        $stmt->bindParam(':totalPoints', $this->totalPoints);
-        $stmt->bindParam(':position', $this->position);
+        $stmt->bindParam(':championshipEntryTotalPoints', $this->championshipEntryTotalPoints);
+        $stmt->bindParam(':championshipEntryPosition', $this->championshipEntryPosition);
         $stmt->bindParam(':class', $this->class);
         $stmt->bindParam(':championshipEntryID', $this->championshipEntryID);
-        $stmt->bindParam(':driverID' , $this->driverID);
+        $stmt->bindParam(':driverID', $this->driverID);
         $stmt->bindParam(':carID', $this->carID);
         $stmt->bindParam(':teamID', $this->teamID);
 
@@ -130,11 +131,11 @@ class ChampionshipEntry
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
         //SetProperties
-        $this->championshipID = $row['championshipID'];
+        $this->championshipEntryChampionshipID = $row['championshipEntryChampionshipID'];
         $this->championshipEntryID = $row['championshipEntryID'];
         $this->class = $row['class'];
-        $this->position = $row['position'];
-        $this->totalPoints = $row['totalPoints'];
+        $this->championshipEntryPosition = $row['championshipEntryPosition'];
+        $this->championshipEntryTotalPoints = $row['championshipEntryTotalPoints'];
 
     }
 

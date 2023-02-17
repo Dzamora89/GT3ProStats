@@ -29,10 +29,10 @@ if ($rowNumber > 0) {
         extract($row);
         $car_item = array(
             'carID' => $carID,
-            'manufacturer' => $manufacturer,
-            'teamName' => $teamName,
-            'number' => $number,
-            'classCar' => $classCar);
+            'carManufacturer' => $carManufacturer,
+            'carTeamName' => $carTeamName,
+            'carNumber' => $carNumber,
+            'carClass' => $carClass);
         // Push Data This work the same as array_push() https://www.php.net/manual/es/function.array-push.php
 //
         $car_Array[] = $car_item;

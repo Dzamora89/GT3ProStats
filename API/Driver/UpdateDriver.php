@@ -23,8 +23,8 @@ $driver = new Driver($db);
 $data = json_decode(file_get_contents("php://input"));
 
 $driver->driverID = $data->driverID;
-$driver->firstName = $data->firstName;
-$driver->lastName = $data->lastName;
+$driver->driverFirstName = $data->driverFirstName;
+$driver->driverLastName = $data->driverLastName;
 $driver->driverCountry = $data->driverCountry;
 $driver->dateOfBirth = $data->dateOfBirth;
 $driver->driverWebsite = $data->driverWebsite;

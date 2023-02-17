@@ -153,7 +153,7 @@ class Championship
         //SetProperties
         $this->championshipID = $row['championshipID'];
         $this->championshipName = $row['championshipName'];
-        $this->championshipCountry = $row['championshipchampionshipCountry'];
+        $this->championshipCountry = $row['championshipCountry'];
         $this->championshipWebsite = $row['championshipWebsite'];
         $this->championshipTwitter = $row['championshipTwitter'];
         $this->championshipFacebook = $row['championshipFacebook'];

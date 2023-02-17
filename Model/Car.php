@@ -9,10 +9,10 @@ class Car
     //Todo: Test the API
     //Properties
     public $carID;
-    public $manufacturer;
-    public $teamID;
-    public $number;
-    public $classCar;
+    public $carManufacturer;
+    public $carTeamID;
+    public $carNumber;
+    public $carClass;
 
     public function __construct($db)
     {
@@ -40,27 +40,27 @@ class Car
     {
         $query = 'INSERT INTO ' . $this->table . ' 
         SET 
-        manufacturer = :manufacturer, 
-        teamID = :teamID, 
-        number = :number, 
-        classCar = :classCar';
+        carManufacturer = :carManufacturer, 
+        carTeamID = :carTeamID, 
+        carNumber = :carNumber, 
+        carClass = :carClass';
 
         //Statment
         $stmt = $this->conn->prepare($query);
 
         //Clean UP data
 
-        $this->manufacturer = htmlspecialchars(strip_tags($this->manufacturer));
-        $this->number = htmlspecialchars(strip_tags($this->number));
-        $this->teamID = htmlspecialchars(strip_tags($this->teamID));
-        $this->classCar = htmlspecialchars(strip_tags($this->classCar));
+        $this->carManufacturer = htmlspecialchars(strip_tags($this->carManufacturer));
+        $this->carNumber = htmlspecialchars(strip_tags($this->carNumber));
+        $this->carTeamID = htmlspecialchars(strip_tags($this->carTeamID));
+        $this->carClass = htmlspecialchars(strip_tags($this->carClass));
 
 
         //Bind the dada
-        $stmt->bindParam(':manufacturer', $this->manufacturer);
-        $stmt->bindParam(':number', $this->number);
-        $stmt->bindParam(':teamID', $this->teamID);
-        $stmt->bindParam(':classCar', $this->classCar);
+        $stmt->bindParam(':carManufacturer', $this->carManufacturer);
+        $stmt->bindParam(':carNumber', $this->carNumber);
+        $stmt->bindParam(':carTeamID', $this->carTeamID);
+        $stmt->bindParam(':carClass', $this->carClass);
 
 
         //Execute Query
@@ -78,10 +78,10 @@ class Car
     {
         $query = 'UPDATE ' . $this->table . ' 
         SET 
-        manufacturer = :manufacturer, 
-        teamID = :teamID, 
-        number = :number, 
-        classCar = :classCar
+        carManufacturer = :carManufacturer, 
+        carTeamID = :carTeamID, 
+        carNumber = :carNumber, 
+        carClass = :carClass
         WHERE
         carID = :carID';
 
@@ -90,17 +90,17 @@ class Car
 
         //Clean UP data
 
-        $this->manufacturer = htmlspecialchars(strip_tags($this->manufacturer));
-        $this->number = htmlspecialchars(strip_tags($this->number));
-        $this->teamID = htmlspecialchars(strip_tags($this->teamID));
-        $this->classCar = htmlspecialchars(strip_tags($this->classCar));
+        $this->carManufacturer = htmlspecialchars(strip_tags($this->carManufacturer));
+        $this->carNumber = htmlspecialchars(strip_tags($this->carNumber));
+        $this->carTeamID = htmlspecialchars(strip_tags($this->carTeamID));
+        $this->carClass = htmlspecialchars(strip_tags($this->carClass));
         $this->carID = htmlspecialchars(strip_tags($this->carID));
 
         //Bind the dada
-        $stmt->bindParam(':manufacturer', $this->manufacturer);
-        $stmt->bindParam(':number', $this->number);
-        $stmt->bindParam(':teamID', $this->teamID);
-        $stmt->bindParam(':classCar', $this->classCar);
+        $stmt->bindParam(':carManufacturer', $this->carManufacturer);
+        $stmt->bindParam(':carNumber', $this->carNumber);
+        $stmt->bindParam(':carTeamID', $this->carTeamID);
+        $stmt->bindParam(':carClass', $this->carClass);
         $stmt->bindParam(':carID', $this->carID);
 
         //Execute Query
@@ -134,10 +134,10 @@ class Car
 
         //SetProperties
         $this->carID = $row['carID'];
-        $this->manufacturer = $row['manufacturer'];
-        $this->teamID = $row['teamID'];
-        $this->classCar = $row['classCar'];
-        $this->number = $row['number'];
+        $this->carManufacturer = $row['carManufacturer'];
+        $this->carTeamID = $row['carTeamID'];
+        $this->carClass = $row['carClass'];
+        $this->carNumber = $row['carNumber'];
 
     }
 

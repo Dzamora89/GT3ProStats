@@ -20,9 +20,9 @@ $race->getRaceByID();
 
 $race_Array = array(
     'raceID' => $race->raceID,
-    'track' => $race->track,
+    'raceTrack' => $race->raceTrack,
     'dateOfRace' => $race->dateOfRace,
     'country' => $race->country,
-    'ChampionshipID' => $race->championshipID);
+    'raceChampionshipID' => $race->raceChampionshipID);
 
 print_r(json_encode($race_Array));

@@ -10,12 +10,12 @@ class RaceResult
     // Properties
 
     public int $raceResultID;
-    public int $carID;
-    public int $raceID;
-    public int $totalTime;
-    public int $laps;
-    public int $pointScored;
-    public int $eloChanged;
+    public int $raceResultCarID;
+    public int $raceResultRaceID;
+    public int $raceResultTotalTime;
+    public int $raceResultLaps;
+    public int $raceResultPointScored;
+    public int $raceResultEloChanged;
 
 
     public function __constructor($db): void
@@ -45,32 +45,32 @@ class RaceResult
     {
         $query = 'INSERT INTO ' . $this->table . ' 
         SET 
-        carID = :carID, 
-        raceID = :raceID, 
-        totalTime = :totalTime, 
-        laps = :laps,
-        pointScored = :pointScored,
-        eloChanged = :eloChanged';
+        raceResultCarID = :raceResultCarID, 
+        raceResultRaceID = :raceResultRaceID, 
+        raceResultTotalTime = :raceResultTotalTime, 
+        raceResultLaps = :raceResultLaps,
+        raceResultPointScored = :raceResultPointScored,
+        raceResultEloChanged = :raceResultEloChanged';
 
         //Statment
         $stmt = $this->conn->prepare($query);
 
         //Clean UP data
 
-        $this->carID = htmlspecialchars(strip_tags($this->carID));
-        $this->raceID = htmlspecialchars(strip_tags($this->raceID));
-        $this->totalTime = htmlspecialchars(strip_tags($this->totalTime));
-        $this->laps = htmlspecialchars(strip_tags($this->laps));
-        $this->pointScored = htmlspecialchars(strip_tags($this->pointScored));
-        $this->eloChanged = htmlspecialchars(strip_tags($this->eloChanged));
+        $this->raceResultCarID = htmlspecialchars(strip_tags($this->raceResultCarID));
+        $this->raceResultRaceID = htmlspecialchars(strip_tags($this->raceResultRaceID));
+        $this->raceResultTotalTime = htmlspecialchars(strip_tags($this->raceResultTotalTime));
+        $this->raceResultLaps = htmlspecialchars(strip_tags($this->raceResultLaps));
+        $this->raceResultPointScored = htmlspecialchars(strip_tags($this->raceResultPointScored));
+        $this->raceResultEloChanged = htmlspecialchars(strip_tags($this->raceResultEloChanged));
 
         //Bind the dada
-        $stmt->bindParam(':carID', $this->carID);
-        $stmt->bindParam(':raceID', $this->raceID);
-        $stmt->bindParam(':totalTime', $this->totalTime);
-        $stmt->bindParam(':laps', $this->laps);
-        $stmt->bindParam(':pointScored', $this->pointScored);
-        $stmt->bindParam(':eloChanged', $this->eloChanged);
+        $stmt->bindParam(':raceResultCarID', $this->raceResultCarID);
+        $stmt->bindParam(':raceResultRaceID', $this->raceResultRaceID);
+        $stmt->bindParam(':raceResultTotalTime', $this->raceResultTotalTime);
+        $stmt->bindParam(':raceResultLaps', $this->raceResultLaps);
+        $stmt->bindParam(':raceResultPointScored', $this->raceResultPointScored);
+        $stmt->bindParam(':raceResultEloChanged', $this->raceResultEloChanged);
 
         //Execute Query
 
@@ -87,12 +87,12 @@ class RaceResult
     {
         $query = 'UPDATE ' . $this->table . ' 
         SET 
-        carID = :carID, 
-        raceID = :raceID, 
-        totalTime = :totalTime, 
-        laps = :laps,
-        pointScored = :pointScored,
-        eloChanged = :eloChanged
+        raceResultCarID = :raceResultCarID, 
+        raceResultRaceID = :raceResultRaceID, 
+        raceResultTotalTime = :raceResultTotalTime, 
+        raceResultLaps = :raceResultLaps,
+        raceResultPointScored = :raceResultPointScored,
+        raceResultEloChanged = :raceResultEloChanged
         WHERE
         raceResultID = :raceResultID';
 
@@ -101,21 +101,21 @@ class RaceResult
 
         //Clean UP data
         $this->raceResultID = htmlspecialchars(strip_tags($this->raceResultID));
-        $this->carID = htmlspecialchars(strip_tags($this->carID));
-        $this->raceID = htmlspecialchars(strip_tags($this->raceID));
-        $this->totalTime = htmlspecialchars(strip_tags($this->totalTime));
-        $this->laps = htmlspecialchars(strip_tags($this->laps));
-        $this->pointScored = htmlspecialchars(strip_tags($this->pointScored));
-        $this->eloChanged = htmlspecialchars(strip_tags($this->eloChanged));
+        $this->raceResultCarID = htmlspecialchars(strip_tags($this->raceResultCarID));
+        $this->raceResultRaceID = htmlspecialchars(strip_tags($this->raceResultRaceID));
+        $this->raceResultTotalTime = htmlspecialchars(strip_tags($this->raceResultTotalTime));
+        $this->raceResultLaps = htmlspecialchars(strip_tags($this->raceResultLaps));
+        $this->raceResultPointScored = htmlspecialchars(strip_tags($this->raceResultPointScored));
+        $this->raceResultEloChanged = htmlspecialchars(strip_tags($this->raceResultEloChanged));
 
         //Bind the dada
         $stmt->bindParam(':raceResultID', $this->raceResultID);
-        $stmt->bindParam(':carID', $this->carID);
-        $stmt->bindParam(':raceID', $this->raceID);
-        $stmt->bindParam(':totalTime', $this->totalTime);
-        $stmt->bindParam(':laps', $this->laps);
-        $stmt->bindParam(':pointScored', $this->pointScored);
-        $stmt->bindParam(':eloChanged', $this->eloChanged);
+        $stmt->bindParam(':raceResultCarID', $this->raceResultCarID);
+        $stmt->bindParam(':raceResultRaceID', $this->raceResultRaceID);
+        $stmt->bindParam(':raceResultTotalTime', $this->raceResultTotalTime);
+        $stmt->bindParam(':raceResultLaps', $this->raceResultLaps);
+        $stmt->bindParam(':raceResultPointScored', $this->raceResultPointScored);
+        $stmt->bindParam(':raceResultEloChanged', $this->raceResultEloChanged);
 
         //Execute Query
 
@@ -148,12 +148,12 @@ class RaceResult
 
         //SetProperties
         $this->raceResultID = $row['raceResultID'];
-        $this->carID = $row['carID'];
-        $this->raceID = $row['raceID'];
-        $this->totalTime = $row['totalTime'];
-        $this->laps = $row['laps'];
-        $this->pointScored = $row['pointScored'];
-        $this->eloChanged = $row['eloChanged'];
+        $this->raceResultCarID = $row['raceResultCarID'];
+        $this->raceResultRaceID = $row['raceResultRaceID'];
+        $this->raceResultTotalTime = $row['raceResultTotalTime'];
+        $this->raceResultLaps = $row['raceResultLaps'];
+        $this->raceResultPointScored = $row['raceResultPointScored'];
+        $this->raceResultEloChanged = $row['raceResultEloChanged'];
 
 
     }

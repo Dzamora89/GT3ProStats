@@ -9,8 +9,8 @@ class Driver
 
     //Driver properties
     public $driverID;
-    public $firstName;
-    public $lastName;
+    public $driverFirstName;
+    public $driverLastName;
     public $driverCountry;
     public $dateOfBirth;
     public $driverWebsite;
@@ -45,8 +45,8 @@ class Driver
     {
         $query = 'INSERT INTO ' . $this->table . ' 
         SET 
-        firstName = :firstName, 
-        lastName = :lastName, 
+        driverFirstName = :driverFirstName, 
+        driverLastName = :driverLastName, 
         driverCountry = :driverCountry, 
         dateOfBirth = :dateOfBirth,
         driverWebsite = :driverWebsite,
@@ -60,8 +60,8 @@ class Driver
 
         //Clean UP data
 
-        $this->firstName = htmlspecialchars(strip_tags($this->firstName));
-        $this->lastName = htmlspecialchars(strip_tags($this->lastName));
+        $this->driverFirstName = htmlspecialchars(strip_tags($this->driverFirstName));
+        $this->driverLastName = htmlspecialchars(strip_tags($this->driverLastName));
         $this->driverCountry = htmlspecialchars(strip_tags($this->driverCountry));
         $this->dateOfBirth = htmlspecialchars(strip_tags($this->dateOfBirth));
         $this->driverWebsite = htmlspecialchars(strip_tags($this->driverWebsite));
@@ -72,8 +72,8 @@ class Driver
 
 
         //Bind the dada
-        $stmt->bindParam(':firstName', $this->firstName);
-        $stmt->bindParam(':lastName', $this->lastName);
+        $stmt->bindParam(':driverFirstName', $this->driverFirstName);
+        $stmt->bindParam(':driverLastName', $this->driverLastName);
         $stmt->bindParam(':driverCountry', $this->driverCountry);
         $stmt->bindParam(':dateOfBirth', $this->dateOfBirth);
         $stmt->bindParam(':driverWebsite', $this->driverWebsite);
@@ -98,8 +98,8 @@ class Driver
     {
         $query = 'UPDATE ' . $this->table . ' 
         SET 
-        firstName = :firstName, 
-        lastName = :lastName, 
+        driverFirstName = :driverFirstName, 
+        driverLastName = :driverLastName, 
         driverCountry = :driverCountry, 
         dateOfBirth = :dateOfBirth,
         driverWebsite = :driverWebsite,
@@ -115,8 +115,8 @@ class Driver
 
         //Clean UP data
 
-        $this->firstName = htmlspecialchars(strip_tags($this->firstName));
-        $this->lastName = htmlspecialchars(strip_tags($this->lastName));
+        $this->driverFirstName = htmlspecialchars(strip_tags($this->driverFirstName));
+        $this->driverLastName = htmlspecialchars(strip_tags($this->driverLastName));
         $this->driverCountry = htmlspecialchars(strip_tags($this->driverCountry));
         $this->dateOfBirth = htmlspecialchars(strip_tags($this->dateOfBirth));
         $this->driverWebsite = htmlspecialchars(strip_tags($this->driverWebsite));
@@ -127,8 +127,8 @@ class Driver
         $this->driverID = htmlspecialchars(strip_tags($this->driverID));
 
         //Bind the dada
-        $stmt->bindParam(':firstName', $this->firstName);
-        $stmt->bindParam(':lastName', $this->lastName);
+        $stmt->bindParam(':driverFirstName', $this->driverFirstName);
+        $stmt->bindParam(':driverLastName', $this->driverLastName);
         $stmt->bindParam(':driverCountry', $this->driverCountry);
         $stmt->bindParam(':dateOfBirth', $this->dateOfBirth);
         $stmt->bindParam(':driverWebsite', $this->driverWebsite);
@@ -169,8 +169,8 @@ class Driver
 
         //SetProperties
         $this->driverID = $row['driverID'];
-        $this->firstName = $row['firstName'];
-        $this->lastName = $row['lastName'];
+        $this->driverFirstName = $row['driverFirstName'];
+        $this->driverLastName = $row['driverLastName'];
         $this->driverCountry = $row['driverCountry'];
         $this->dateOfBirth = $row['dateOfBirth'];
         $this->driverWebsite = $row['driverWebsite'];

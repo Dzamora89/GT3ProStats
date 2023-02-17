@@ -21,9 +21,9 @@ $car->getCarByID();
 
 $car_Array = array(
     'carID' => $car->carID,
-    'manufacturer' => $car->manufacturer,
-    'teamID' => $car->teamID,
-    'number' => $car->number,
-    'classCar' => $car->classCar);
+    'carManufacturer' => $car->carManufacturer,
+    'carTeamID' => $car->carTeamID,
+    'carNumber' => $car->carNumber,
+    'carClass' => $car->carClass);
 
 print_r(json_encode($car_Array));

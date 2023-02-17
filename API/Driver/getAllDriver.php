@@ -29,8 +29,8 @@ if ($rowNumber > 0) {
         extract($row);
         $driver_item = array(
             'driverID' => $driverID,
-            'firstName' => $firstName,
-            'lastName' => $lastName,
+            'driverFirstName' => $driverFirstName,
+            'driverLastName' => $driverLastName,
             'driverCountry' => $driverCountry,
             'dateOfBirth' => $dateOfBirth,
             'driverWebsite' => $driverWebsite,
