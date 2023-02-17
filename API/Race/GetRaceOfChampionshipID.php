@@ -31,8 +31,8 @@ if ($rowNumber > 0) {
         $race_item = array(
             'raceID' => $raceID,
             'raceTrack' => $raceTrack,
-            'dateOfRace' => $dateOfRace,
-            'country' => $country,
+            'raceDateOfRace' => $raceDateOfRace,
+            'raceCountry' => $raceCountry,
             'raceChampionshipID' => $raceChampionshipID
         );
         $race_Array[] = $race_item;

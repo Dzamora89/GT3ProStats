@@ -23,8 +23,8 @@ $data = json_decode(file_get_contents("php://input"));
 
 $race->raceTrack = $data->raceTrack;
 $race->raceChampionshipID = $data->raceChampionshipID;
-$race->country = $data->country;
-$race->dateOfRace = $data->dateOfRace;
+$race->raceCountry = $data->raceCountry;
+$race->raceDateOfRace = $data->raceDateOfRace;
 
 //Create the race
 if ($race->createRace()) {

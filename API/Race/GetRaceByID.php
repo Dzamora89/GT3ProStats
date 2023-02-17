@@ -21,8 +21,8 @@ $race->getRaceByID();
 $race_Array = array(
     'raceID' => $race->raceID,
     'raceTrack' => $race->raceTrack,
-    'dateOfRace' => $race->dateOfRace,
-    'country' => $race->country,
+    'raceDateOfRace' => $race->raceDateOfRace,
+    'raceCountry' => $race->raceCountry,
     'raceChampionshipID' => $race->raceChampionshipID);
 
 print_r(json_encode($race_Array));
