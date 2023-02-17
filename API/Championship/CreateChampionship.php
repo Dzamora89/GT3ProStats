@@ -21,7 +21,7 @@ $championship = new Championship($db);
 // Get de raw posted data
 $data = json_decode(file_get_contents("php://input"));
 
-$championship->championshipName = $data->championshipchampionshipName;
+$championship->championshipName = $data->championshipName;
 $championship->championshipYoutube = $data->championshipYoutube;
 $championship->championshipFacebook = $data->championshipFacebook;
 $championship->championshipTwitter = $data->championshipTwitter;

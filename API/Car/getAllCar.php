@@ -30,7 +30,7 @@ if ($rowNumber > 0) {
         $car_item = array(
             'carID' => $carID,
             'carManufacturer' => $carManufacturer,
-            'carTeamName' => $carTeamName,
+            'teamName' => $teamName,
             'carNumber' => $carNumber,
             'carClass' => $carClass);
         $car_Array[] = $car_item;
