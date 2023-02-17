@@ -33,8 +33,6 @@ if ($rowNumber > 0) {
             'carTeamName' => $carTeamName,
             'carNumber' => $carNumber,
             'carClass' => $carClass);
-        // Push Data This work the same as array_push() https://www.php.net/manual/es/function.array-push.php
-//
         $car_Array[] = $car_item;
     }
     //Turn into Json & Output

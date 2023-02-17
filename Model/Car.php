@@ -6,7 +6,6 @@ class Car
     private $conn;
     private $table = 'car';
 
-    //Todo: Test the API
     //Properties
     public $carID;
     public $carManufacturer;
@@ -23,7 +22,7 @@ class Car
     {
         //Create Query
         $query = 'SELECT * 
-                  FROM car join team on car.teamID = team.TeamID 
+                  FROM car join team on car.carTeamID = team.TeamID 
                   ORDER BY carID ASC';
 
         // Prepared Statement
