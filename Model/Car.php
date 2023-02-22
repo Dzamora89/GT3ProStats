@@ -140,6 +140,32 @@ class Car
 
     }
 
+    public function getCarByCarTeamID(): void
+    {
+        $query = 'SELECT * 
+                  FROM ' . $this->table . '
+                  WHERE carTeamID = :carTeamID';
+        //Prepare Statement
+
+        $stmt = $this->conn->prepare($query);
+
+        //Bind ID
+
+        $stmt->bindParam(':carTeamID', $this->carTeamID);
+
+        // Execute Query
+        $stmt->execute();
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        //SetProperties
+        $this->carID = $row['carID'];
+        $this->carManufacturer = $row['carManufacturer'];
+        $this->carTeamID = $row['carTeamID'];
+        $this->carClass = $row['carClass'];
+        $this->carNumber = $row['carNumber'];
+
+    }
+
 
     public function deleteDriver(): bool
     {
