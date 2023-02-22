@@ -140,11 +140,11 @@ class Car
 
     }
 
-    public function getCarByCarTeamID(): void
+    public function getCarByCarTeamID()
     {
         $query = 'SELECT * 
-                  FROM ' . $this->table . '
-                  WHERE carTeamID = :carTeamID';
+                  FROM car join team on car.carTeamID = team.TeamID 
+                  WHERE carTeamID = :carTeamID ;';
         //Prepare Statement
 
         $stmt = $this->conn->prepare($query);
@@ -155,14 +155,7 @@ class Car
 
         // Execute Query
         $stmt->execute();
-        $row = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        //SetProperties
-        $this->carID = $row['carID'];
-        $this->carManufacturer = $row['carManufacturer'];
-        $this->carTeamID = $row['carTeamID'];
-        $this->carClass = $row['carClass'];
-        $this->carNumber = $row['carNumber'];
+        return $stmt;
 
     }
 

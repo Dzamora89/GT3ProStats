@@ -19,7 +19,7 @@ $result = $car->getAllCar();
 //Get Row count
 $rowNumber = $result->rowCount();
 
-// Check if any post
+// Check if any Car
 
 if ($rowNumber > 0) {
     //Car Array

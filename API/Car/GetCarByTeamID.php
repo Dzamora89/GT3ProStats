@@ -13,17 +13,37 @@ $db = $database->connect();
 $car = new Car($db);
 //Get the ID
 
-$car->carID = $_GET['carTeamID'] ?? die();
+$car->carTeamID = $_GET['carTeamID'] ?? die();
 
 //Get Car
 
-$car->getCarByID();
+$result = $car->getCarByCarTeamID();
 
-$car_Array = array(
-    'carID' => $car->carID,
-    'carManufacturer' => $car->carManufacturer,
-    'carTeamID' => $car->carTeamID,
-    'carNumber' => $car->carNumber,
-    'carClass' => $car->carClass);
+$rowNumber = $result->rowCount();
 
-print_r(json_encode($car_Array));
+
+// Check if any Car
+
+if ($rowNumber > 0) {
+    //Car Array
+    $car_Array = array();
+//    $post_Array['Data'] = [];
+    while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+        extract($row);
+        $car_item = array(
+            'carID' => $carID,
+            'carManufacturer' => $carManufacturer,
+            'TeamName' => $teamName,
+            'carNumber' => $carNumber,
+            'carClass' => $carClass);
+        $car_Array[] = $car_item;
+    }
+    //Turn into Json & Output
+    echo json_encode($car_Array);
+
+} else {
+    //No found
+    echo json_encode(array(
+        'message' => 'No Car found'
+    ));
+}
