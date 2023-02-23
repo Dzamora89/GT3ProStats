@@ -49,7 +49,7 @@ class Driver
         driverFirstName = :driverFirstName, 
         driverLastName = :driverLastName, 
         driverCountry = :driverCountry, 
-        dateOfBirth = :dateOfBirth,
+        driverDateOfBirth = :driverDateOfBirth,
         driverWebsite = :driverWebsite,
         driverTwitter = :driverTwitter, 
         driverStatus = :driverStatus,
@@ -76,7 +76,7 @@ class Driver
         $stmt->bindParam(':driverFirstName', $this->driverFirstName);
         $stmt->bindParam(':driverLastName', $this->driverLastName);
         $stmt->bindParam(':driverCountry', $this->driverCountry);
-        $stmt->bindParam(':dateOfBirth', $this->dateOfBirth);
+        $stmt->bindParam(':driverDateOfBirth', $this->driverDateOfBirth);
         $stmt->bindParam(':driverWebsite', $this->driverWebsite);
         $stmt->bindParam(':driverTwitter', $this->driverTwitter);
         $stmt->bindParam(':driverStatus', $this->driverStatus);
