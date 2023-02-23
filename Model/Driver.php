@@ -207,4 +207,26 @@ class Driver
         return false;
     }
 
+    //TODO This function dont work yet
+    public function getDriverByCarID()
+    {
+        $query = 'SELECT * 
+                  FROM driver join drives on driver.drivesDriverID = driver.driverID
+                  WHERE driverID = :driverID';
+        //Prepare Statement
+
+        $stmt = $this->conn->prepare($query);
+
+        //Bind ID
+
+        $stmt->bindParam(':driverID', $this->driverID);
+
+        // Prepared Statement
+
+
+        // Execute Query
+        $stmt->execute();
+        return $stmt;
+
+    }
 }
