@@ -1,6 +1,6 @@
 <?php
 
-namespace Model;
+
 class Championship
 {
 // DB Stuff

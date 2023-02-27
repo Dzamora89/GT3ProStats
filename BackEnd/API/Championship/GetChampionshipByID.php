@@ -1,13 +1,14 @@
 <?php
 //Header
-use Model\Championship;
-
-header('Access-Control-Allow-Origin: *');
-header('Content-type: application/json');
 
 
 include_once '../../config/database.php';
 include_once '../../Model/Championship.php';
+
+
+header('Access-Control-Allow-Origin: *');
+header('Content-type: application/json');
+
 // Instate the DB and Connection
 $database = new Database();
 $db = $database->connect();

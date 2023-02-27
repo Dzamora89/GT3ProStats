@@ -1,7 +1,6 @@
 <?php
 
 //Header
-use Model\Race;
 
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');

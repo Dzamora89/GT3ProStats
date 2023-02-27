@@ -2,7 +2,6 @@
 
 //Header
 // Todo Clean and understand the Headers
-use Model\Car;
 
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');

@@ -1,6 +1,5 @@
 <?php
 
-namespace Model;
 class Race
 {
     // DB Stuff

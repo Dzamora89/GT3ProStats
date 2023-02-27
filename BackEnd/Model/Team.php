@@ -1,6 +1,5 @@
 <?php
 
-namespace Model;
 class Team
 {
 // DB Stuff

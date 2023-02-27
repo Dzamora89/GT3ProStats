@@ -1,6 +1,5 @@
 <?php
 
-namespace Model;
 class Drives
 {
     private $conn;

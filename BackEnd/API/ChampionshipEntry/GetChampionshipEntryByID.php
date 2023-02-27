@@ -1,6 +1,5 @@
 <?php
 //Header
-use Model\ChampionshipEntry;
 
 header('Access-Control-Allow-Origin: *');
 header('Content-type: application/json');
