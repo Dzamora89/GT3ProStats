@@ -101,7 +101,7 @@ class Driver
         driverFirstName = :driverFirstName, 
         driverLastName = :driverLastName, 
         driverCountry = :driverCountry, 
-        dateOfBirth = :dateOfBirth,
+        driverDateOfBirth = :driverDateOfBirth,
         driverWebsite = :driverWebsite,
         driverTwitter = :driverTwitter, 
         driverStatus = :driverStatus,
@@ -118,7 +118,7 @@ class Driver
         $this->driverFirstName = htmlspecialchars(strip_tags($this->driverFirstName));
         $this->driverLastName = htmlspecialchars(strip_tags($this->driverLastName));
         $this->driverCountry = htmlspecialchars(strip_tags($this->driverCountry));
-        $this->dateOfBirth = htmlspecialchars(strip_tags($this->dateOfBirth));
+        $this->driverDateOfBirth = htmlspecialchars(strip_tags($this->driverDateOfBirth));
         $this->driverWebsite = htmlspecialchars(strip_tags($this->driverWebsite));
         $this->driverTwitter = htmlspecialchars(strip_tags($this->driverTwitter));
         $this->driverStatus = htmlspecialchars(strip_tags($this->driverStatus));
@@ -130,7 +130,7 @@ class Driver
         $stmt->bindParam(':driverFirstName', $this->driverFirstName);
         $stmt->bindParam(':driverLastName', $this->driverLastName);
         $stmt->bindParam(':driverCountry', $this->driverCountry);
-        $stmt->bindParam(':dateOfBirth', $this->dateOfBirth);
+        $stmt->bindParam(':driverDateOfBirth', $this->driverDateOfBirth);
         $stmt->bindParam(':driverWebsite', $this->driverWebsite);
         $stmt->bindParam(':driverTwitter', $this->driverTwitter);
         $stmt->bindParam(':driverStatus', $this->driverStatus);
@@ -172,7 +172,7 @@ class Driver
         $this->driverFirstName = $row['driverFirstName'];
         $this->driverLastName = $row['driverLastName'];
         $this->driverCountry = $row['driverCountry'];
-        $this->dateOfBirth = $row['dateOfBirth'];
+        $this->driverDateOfBirth = $row['driverDateOfBirth'];
         $this->driverWebsite = $row['driverWebsite'];
         $this->driverTwitter = $row['driverTwitter'];
         $this->driverStatus = $row['driverStatus'];
