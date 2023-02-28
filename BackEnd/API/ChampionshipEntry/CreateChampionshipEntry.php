@@ -15,18 +15,20 @@ include_once '../../Model/ChampionshipEntry.php';
 $database = new Database();
 $db = $database->connect();
 
-//Initialize the driver
+//Initialize the Object
 $championshipEntry = new ChampionshipEntry($db);
 
-//TODO Hacer bien los datos, no esta completo.
 // Get de raw posted data
 $data = json_decode(file_get_contents("php://input"));
 
-
+print_r($data);
 $championshipEntry->championshipEntryChampionshipID = $data->championshipEntryChampionshipID;
 $championshipEntry->championshipEntryTotalPoints = $data->championshipEntryTotalPoints;
 $championshipEntry->championshipEntryPosition = $data->championshipEntryPosition;
 $championshipEntry->championshipEntryClass = $data->championshipEntryClass;
+$championshipEntry->championshipEntryCarID = $data->championshipEntryCarID;
+$championshipEntry->championshipEntryDriverID = $data->championshipEntryDriverID;
+$championshipEntry->championshipEntryTeamID = $data->championshipEntryTeamID;
 //Create
 if ($championshipEntry->createChampionshipEntry()) {
     echo json_encode(array('message' => 'championshipEntry Created'));

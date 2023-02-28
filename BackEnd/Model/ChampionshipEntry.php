@@ -4,7 +4,7 @@ class ChampionshipEntry
 {
 // DB Stuff
     private $conn;
-    private $table = 'championshipEntry';
+    private $table = 'championshipentry';
 
     //
     public $championshipEntryID;
