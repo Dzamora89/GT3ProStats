@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>GT3 Pro Stats</title>
+    <link rel="icon" type="image/jpg" href="img/Logo%20150x150.png"/>
+
+    <link rel="stylesheet" href="styles/styles.css">
+    <script src="js/bootstrap.bundle.js" defer></script>
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="js/ranking.js" defer></script>
+</head>
+<body class="bg-light">
+<div class="container-fluid mt-3 ms-3">
+    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="./index.html">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Ranking</li>
+        </ol>
+    </nav>
+</div>
+<!-- As a link -->
+
+<div class="container mt-3">
+    <div class="container podium d-flex justify-content-lg-center">
+        <div class="podium__item">
+            <p class="podium__driver" id="driver2nd">Driver 2</p>
+            <p class="podium__driver" id="driver2ndCar">Driver 2 Car</p>
+            <p class="podium__driver" id="driver2ndELO">Driver 2 ELO</p>
+            <div class="podium__rank second">2</div>
+        </div>
+        <div class="podium__item">
+            <p class="podium__driver" id="driver1st">Driver 1</p>
+            <p class="podium__driver" id="driver1stCar">Driver 1 Car</p>
+            <p class="podium__driver" id="driver1stELO">Driver 1 ELO</p>
+
+            <div class="podium__rank first">
+                <svg class="podium__number" viewBox="0 0 27.476 75.03" xmlns="http://www.w3.org/2000/svg">
+                    <g transform="matrix(1, 0, 0, 1, 214.957736, -43.117417)">
+                        <path class="st8" d="M -198.928 43.419 C -200.528 47.919 -203.528 51.819 -207.828 55.219 C -210.528 57.319 -213.028 58.819 -215.428 60.019 L -215.428 72.819 C -210.328 70.619 -205.628 67.819 -201.628 64.119 L -201.628 117.219 L -187.528 117.219 L -187.528 43.419 L -198.928 43.419 L -198.928 43.419 Z" style="fill: #000;"/>
+                    </g>
+                </svg>
+            </div>
+        </div>
+        <div class="podium__item">
+            <p class="podium__driver " id="driver3rd">Driver 3</p>
+            <p class="podium__driver" id="driver3rdCar">Driver 3 CAR</p>
+            <p class="podium__driver" id="driver3rdELO">Driver 3ELO</p>
+            <div class="podium__rank third">3</div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <table class="table mt-3 table-responsive">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Driver</th>
+            <th scope="col">Car</th>
+            <th scope="col">ELO</th>
+        </tr>
+        </thead>
+        <tbody id="tableRanking">
+
+        </tbody>
+    </table>
+</div>
+
+<footer class="container-fluid mt-3">
+    <ul class="list-unstyled d-flex flex-column flex-lg-row gap-lg-3 justify-content-lg-center align-items-center">
+        <li>GT3 ProStats &copy; <span id="date">2022</span></li>
+        <li><a href="">Twitter <i class="twi"></i></a></li>
+        <li><a href="">Youtube</a></li>
+        <li><a href="">Instagram</a></li>
+        <li><a href="">Flickr</a></li>
+        <li><a href="">LinkedIn</a></li>
+        <li><a href="">Privacy</a></li>
+        <li><a href="">Suppliers</a></li>
+    </ul>
+</footer>
+</body>
+</html>

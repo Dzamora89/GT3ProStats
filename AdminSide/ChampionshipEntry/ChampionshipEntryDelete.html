@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>GT3 Pro Stats</title>
+    <link rel="icon" type="image/jpg" href="../../img/Logo%20150x150.png"/>
+
+    <link rel="stylesheet" href="../../styles/styles.css">
+    <script src="../../node_modules/jquery/dist/jquery.js" defer></script>
+    <script src="../../node_modules/bootstrap/dist/js/bootstrap.js" defer></script>
+    <script src="./championshipEntryDelete.js" defer></script>
+</head>
+<body>
+<!-- HEADER -->
+<nav class="navbar navbar-dark navbar-expand-xl  bg-black sticky-top">
+</nav>
+<!-- Fin del NavBar -->
+<div class="container-fluid mt-3 ms-3">
+    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="../Admin/adminHome.html">Admin</a></li>
+            <li class="breadcrumb-item"><a href="./ChampionshipEntryAdmin.html">Championship Entry Admin</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Championship Entry Delete</li>
+        </ol>
+    </nav>
+</div>
+<div id="principal" class="container d-flex flex-column align-items-center justify-content-center">
+    <h1 class="text-black text-center mt-5 mb-3">Delete a Championship Entry</h1>
+        <select name="championshipEntryChampionshipID" id="championshipEntryChampionshipID" class="form-select" aria-label="ChampionshipSelect">
+            <option selected>Select the Championship</option>
+        </select>
+    <div id="EntriesList" class="container">
+        
+    </div>
+    </button>
+</div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>GT3 Pro Stats</title>
+    <link rel="icon" type="image/jpg" href="../../img/Logo%20150x150.png"/>
+
+    <link rel="stylesheet" href="../../styles/styles.css">
+    <script src="../../node_modules/jquery/dist/jquery.js" defer></script>
+    <script src="../../node_modules/bootstrap/dist/js/bootstrap.js" defer></script>
+    <script src="./TeamDelete.js" defer></script>
+</head>
+<body>
+<!-- HEADER -->
+<nav class="navbar navbar-dark navbar-expand-xl  bg-black sticky-top">
+</nav>
+<!-- Fin del NavBar -->
+
+<div class="container-fluid mt-3 ms-3">
+    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="../Admin/adminHome.html">Admin</a></li>
+            <li class="breadcrumb-item"><a href="./TeamAdmin.html">Team Admin</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Team Delete</li>
+        </ol>
+    </nav>
+</div>
+
+<div id="principal" class="container d-flex flex-column mb-5 align-items-center justify-content-center">
+    <h1 class="text-black text-center mt-5 mb-3">Delete a Team</h1>
+
+    <div class="container w-50 d-flex flex-column align-items-center">
+        <select id="deleteSelect" class="form-select" aria-label="Default select example">
+            <option selected hidden>Select the Team you want to Delete</option>
+        </select>
+    </div>
+    <div id="showTeam" class="container mt-4 d-flex flex-column ">
+
+    </div>
+
+
+</div>
+
+
+</body>
+</html>

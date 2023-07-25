@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>GT3 Pro Stats</title>
+  <link rel="icon" type="image/jpg" href="../../img/Logo%20150x150.png"/>
+  <link rel="stylesheet" href="../../styles/styles.css">
+  <script src="../../node_modules/jquery/dist/jquery.js" defer></script>
+  <script src="../../node_modules/bootstrap/dist/js/bootstrap.js" defer></script>
+  <script src="./championshipEntryCreate.js" defer></script>
+</head>
+<body>
+<!-- HEADER -->
+<nav class="navbar navbar-dark navbar-expand-xl  bg-black sticky-top">
+</nav>
+<!-- Fin del NavBar -->
+<div class="container-fluid mt-3 ms-3">
+  <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="../Admin/adminHome.html">Admin</a></li>
+      <li class="breadcrumb-item"><a href="./ChampionshipEntryAdmin.html">Championship Entry Admin</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Championship Entry Create</li>
+    </ol>
+  </nav>
+</div>
+<div id="principal" class="container d-flex flex-column align-items-center justify-content-center">
+  <h1 class="text-black text-center mt-5 mb-3">Create a Championship Entry</h1>
+
+  <form  id="championshipEntryCreateForm" class="d-flex flex-wrap justify-content-center w-100 gap-3">
+
+    <select name="championshipEntryChampionshipID" id="championshipEntryChampionshipID" class="form-select" aria-label="ChampionshipSelect">
+      <option selected>Select the Championship</option>
+    </select>
+    <select name="championshipEntryTeamID" id="championshipEntryTeamID" class="form-select " aria-label="ChampionshipSelect">
+      <option selected>Select the Team</option>
+    </select>
+    <select name="championshipEntryCarID" id="championshipEntryCarID" class="form-select " aria-label="ChampionshipSelect">
+      <option selected>Select the Car</option>
+    </select>
+    <div id="drivers" class="container-fluid d-flex d-lg-flex flex-lg-row flex-column gap-2 m-0 p-0 flex-wrap">
+      <select name="drivers[]" id="DriverSelect-1" class="form-select selectDriver" aria-label="ChampionshipSelect">
+        <option selected>Select the Driver</option>
+      </select>
+    </div>
+
+    <div class="input-group mb-3 ">
+      <span class="input-group-text" id="carClassSpan">Class</span>
+      <input id="championshipEntryClass" type="text" class="form-control" placeholder="Silver/Pro/AM" aria-label="Class"
+             aria-describedby="class">
+    </div>
+  </form>
+  <button class="btn bg-success align-items w-50 m-auto mt-5" onclick="createChampionshipEntry()">Create championship Entry
+  </button>
+</div>
+</body>
+</html>

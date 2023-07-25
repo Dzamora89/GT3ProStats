@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>LogIn</title>
+    <link rel="icon" type="image/jpg" href="../../img/Logo%20150x150.png"/>
+
+    <link rel="stylesheet" href="../../styles/styles.css">
+    <script src="../../node_modules/jquery/dist/jquery.js" defer></script>
+    <script src="../../node_modules/bootstrap/dist/js/bootstrap.js" defer></script>
+    <script src="login.js" defer></script>
+
+    <!-- SweetAlert CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.2/dist/sweetalert2.min.css">
+
+    <!-- SweetAlert JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.2/dist/sweetalert2.all.min.js"></script>
+
+</head>
+<body>
+<nav class="navbar navbar-dark navbar-expand-xl  bg-black sticky-top">
+</nav>
+
+<div class="container d-flex flex-column justify-content-center align-items-center mt-5">
+    <h2>Log In </h2>
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="username" placeholder="username">
+        <label for="username">Username</label>
+    </div>
+    <div class="form-floating">
+        <input type="password" class="form-control" id="password" placeholder="Password">
+        <label for="password">Password</label>
+    </div>
+    <button type="button" value="login-btn" id="login-btn" class="btn btn-primary mt-3">Log In</button>
+</div>
+</body>
+</html>

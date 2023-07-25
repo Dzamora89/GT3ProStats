@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>GT3 Pro Stats</title>
+    <link rel="icon" type="image/jpg" href="img/Logo%20150x150.png"/>
+
+    <link rel="stylesheet" href="styles/styles.css">
+    <script src="js/bootstrap.bundle.js" defer></script>
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="js/championshipPage.js" defer></script>
+</head>
+<body class="bg-light">
+<div class="container-fluid mt-3 ms-3">
+    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="./index.html">Home</a></li>
+            <li class="breadcrumb-item"><a href="./championships.html">Championship</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Championship Page</li>
+        </ol>
+    </nav>
+</div>
+<div class="container d-flex justify-content-lg-center flex-column align-items-center">
+    <h1 id="championshipName" class="">Championship Name</h1>
+</div>
+<div class="container d-flex justify-content-lg-center flex-column align-items-center">
+    <h2>Championship Table</h2>
+    <table id="championshipTable" class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Driver</th>
+            <th scope="col">Car Manufacturer</th>
+            <th scope="col">Car Number</th>
+            <th scope="col">Team</th>
+            <th scope="col">Total Points</th>
+        </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>
+
+<div class="container mt-3 d-flex flex-column align-items-center">
+    <h2 class="text-center">Check here any race result</h2>
+    <select id="raceSelect" class="form-select mt-3" aria-label="Default select example">
+
+    </select>
+</div>
+
+<div class="container" id="racesResult"></div>
+<footer class="container-fluid mt-3">
+    <ul class="list-unstyled d-flex flex-column flex-lg-row gap-lg-3 justify-content-lg-center align-items-center">
+        <li>GT3 ProStats &copy; <span id="date">2022</span></li>
+        <li><a href="">Twitter <i class="twi"></i></a></li>
+        <li><a href="">Youtube</a></li>
+        <li><a href="">Instagram</a></li>
+        <li><a href="">Flickr</a></li>
+        <li><a href="">LinkedIn</a></li>
+        <li><a href="">Privacy</a></li>
+        <li><a href="">Suppliers</a></li>
+    </ul>
+</footer>
+</body>
+</html>
