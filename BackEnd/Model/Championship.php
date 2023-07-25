@@ -3,7 +3,7 @@
 
 class Championship
 {
-// DB Stuff
+    // DB Stuff
     private $conn;
     private $table = 'championship';
 
@@ -160,7 +160,6 @@ class Championship
         $this->championshipFacebook = $row['championshipFacebook'];
         $this->championshipYoutube = $row['championshipYoutube'];
         $this->championshipSeason = $row['championshipSeason'];
-
     }
 
 

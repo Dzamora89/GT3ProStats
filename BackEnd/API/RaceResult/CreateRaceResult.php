@@ -24,14 +24,14 @@ $championshipEntry = new ChampionshipEntry($db);
 $raceResult = new RaceResult($db);
 // Get de raw posted data
 
-$raceResult->raceResultCarID = $_GET['raceresultCarID'];
-$raceResult->raceresultRaceID = $_GET['raceresultRaceID'];
+$raceResult->raceResultCarID = $_GET['raceResultCarID'];
+$raceResult->raceResultRaceID = $_GET['raceResultRaceID'];
 $raceResult->raceResultDriverID = $_GET['raceResultDriverID'];
-$raceResult->raceresultGap = $_GET['raceresultGap'];
-$raceResult->raceresultLaps = $_GET['raceresultLaps'];
-$raceResult->raceresultPointsScored = $_GET['raceresultPointsScored'];
-$raceResult->raceresultEloChanged = $_GET['raceresultEloChanged'];
-$raceResult->raceresultPosition = $_GET['raceresultPosition'];
+$raceResult->raceResultGap = $_GET['raceResultGap'];
+$raceResult->raceResultLaps = $_GET['raceResultLaps'];
+$raceResult->raceResultPointsScored = $_GET['raceResultPointsScored'];
+$raceResult->raceResultEloChanged = $_GET['raceResultEloChanged'];
+$raceResult->raceResultPosition = $_GET['raceResultPosition'];
 
 
 $driver->driverID = $_GET['raceResultDriverID'];
@@ -48,10 +48,9 @@ if ($raceResult->createRaceResult()) {
         echo json_encode(array('message' => 'Race Result Created'));
         $championshipEntry->updateTheChampionship($_GET['raceresultPointsScored']);
         $driver->updateElo();
-    }catch (Error){
-        echo Error::getMessage();
+    } catch (Error $e) {
+        echo $e->getMessage();
     }
-
 } else {
     echo json_encode(
         array('message' => 'Race Result Not created')

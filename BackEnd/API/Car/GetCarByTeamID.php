@@ -28,20 +28,20 @@ $rowNumber = $result->rowCount();
 if ($rowNumber > 0) {
     //Car Array
     $car_Array = array();
-//    $post_Array['Data'] = [];
+    //    $post_Array['Data'] = [];
     while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
         extract($row);
         $car_item = array(
             'carID' => $carID,
             'carManufacturer' => $carManufacturer,
-            'TeamName' => $teamName,
+            'teamName' => $teamName,
             'carNumber' => $carNumber,
-            'carClass' => $carClass);
+            'carClass' => $carClass
+        );
         $car_Array[] = $car_item;
     }
     //Turn into Json & Output
     echo json_encode($car_Array);
-
 } else {
     //No found
     echo json_encode(array(

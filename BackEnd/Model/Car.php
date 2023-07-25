@@ -3,7 +3,7 @@
 
 class Car
 {
-// DB Stuff
+    // DB Stuff
     private $conn;
     private $table = 'car';
 
@@ -23,7 +23,7 @@ class Car
     {
         //Create Query
         $query = 'SELECT * 
-                  FROM car join team on car.carTeamID = team.TeamID 
+                  FROM car join team on car.carTeamID = team.teamID 
                   ORDER BY carNumber';
 
         // Prepared Statement
@@ -138,13 +138,12 @@ class Car
         $this->carTeamID = $row['carTeamID'];
         $this->carClass = $row['carClass'];
         $this->carNumber = $row['carNumber'];
-
     }
 
     public function getCarByCarTeamID()
     {
         $query = 'SELECT * 
-                  FROM car join team on car.carTeamID = team.TeamID 
+                  FROM car join team on car.carTeamID = team.teamID 
                   WHERE carTeamID = :carTeamID ;';
         //Prepare Statement
 
@@ -157,7 +156,6 @@ class Car
         // Execute Query
         $stmt->execute();
         return $stmt;
-
     }
 
 

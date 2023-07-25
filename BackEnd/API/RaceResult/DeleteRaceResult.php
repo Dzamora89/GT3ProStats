@@ -21,7 +21,7 @@ $raceResult = new RaceResult($db);
 $driver = new Driver($db);
 $championshipEntry = new ChampionshipEntry($db);
 
-$raceResult->raceResultID = $_GET['raceresultID'];
+$raceResult->raceResultID = $_GET['raceResultID'];
 $driver->driverID = $_GET['raceResultDriverID'];
 $driver->driverELO = $_GET['driverELO'];
 $championshipEntry->championshipEntryChampionshipID = $_GET['championshipID'];

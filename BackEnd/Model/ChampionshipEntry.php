@@ -2,9 +2,9 @@
 
 class ChampionshipEntry
 {
-// DB Stuff
+    // DB Stuff
     private $conn;
-    private $table = 'championshipentry';
+    private $table = 'championshipEntry';
 
     //
     public $championshipEntryID;
@@ -23,7 +23,7 @@ class ChampionshipEntry
 
     public function createChampionshipEntry(): bool
     {
-        $query = 'INSERT INTO championshipentry (
+        $query = 'INSERT INTO championshipEntry (
             championshipEntryChampionshipID,
             championshipEntryTotalPoints,
             championshipEntryPosition,
@@ -54,12 +54,12 @@ class ChampionshipEntry
         $this->championshipEntryTeamID = htmlspecialchars(strip_tags($this->championshipEntryTeamID));
 
         //Bind the dada
-        $stmt->bindParam(':championshipEntryChampionshipID', $this->championshipEntryChampionshipID , PDO::PARAM_INT);
-        $stmt->bindParam(':championshipEntryTotalPoints', $this->championshipEntryTotalPoints,PDO::PARAM_INT);
-        $stmt->bindParam(':championshipEntryPosition', $this->championshipEntryPosition , PDO::PARAM_INT);
+        $stmt->bindParam(':championshipEntryChampionshipID', $this->championshipEntryChampionshipID, PDO::PARAM_INT);
+        $stmt->bindParam(':championshipEntryTotalPoints', $this->championshipEntryTotalPoints, PDO::PARAM_INT);
+        $stmt->bindParam(':championshipEntryPosition', $this->championshipEntryPosition, PDO::PARAM_INT);
         $stmt->bindParam(':championshipEntryClass', $this->championshipEntryClass, PDO::PARAM_STR);
-        $stmt->bindParam(':championshipEntryDriverID', $this->championshipEntryDriverID , PDO::PARAM_INT);
-        $stmt->bindParam(':championshipEntryCarID', $this->championshipEntryCarID , PDO::PARAM_INT);
+        $stmt->bindParam(':championshipEntryDriverID', $this->championshipEntryDriverID, PDO::PARAM_INT);
+        $stmt->bindParam(':championshipEntryCarID', $this->championshipEntryCarID, PDO::PARAM_INT);
         $stmt->bindParam(':championshipEntryTeamID', $this->championshipEntryTeamID, PDO::PARAM_INT);
 
         //Execute Query
@@ -75,7 +75,7 @@ class ChampionshipEntry
 
     public function updateChampionshipEntry(): bool
     {
-        $query = 'UPDATE championshipentry
+        $query = 'UPDATE championshipEntry
         SET 
         championshipEntryTotalPoints = :championshipEntryTotalPoints
         WHERE
@@ -120,7 +120,7 @@ class ChampionshipEntry
 
         //Bind ID
 
-        $stmt->bindParam(':ChampionshipEntryID', $this->ChampionshipEntryID);
+        $stmt->bindParam(':ChampionshipEntryID', $this->championshipEntryID);
 
         // Execute Query
         $stmt->execute();
@@ -132,7 +132,6 @@ class ChampionshipEntry
         $this->championshipEntryClass = $row['championshipEntryClass'];
         $this->championshipEntryPosition = $row['championshipEntryPosition'];
         $this->championshipEntryTotalPoints = $row['championshipEntryTotalPoints'];
-
     }
 
 
@@ -162,7 +161,8 @@ class ChampionshipEntry
         return false;
     }
 
-    public function getChampionshipEntriesByChampionshipID(){
+    public function getChampionshipEntriesByChampionshipID()
+    {
 
         $query = 'select championshipEntryID,
                         teamName,
@@ -197,7 +197,8 @@ class ChampionshipEntry
     }
 
 
-    public function updateTheChampionship($pointsScored){
+    public function updateTheChampionship($pointsScored)
+    {
         $query = 'UPDATE championshipentry
             SET championshipEntryTotalPoints = championshipEntryTotalPoints + :pointsScored
             where championshipEntryDriverID = :driverID and championshipEntryChampionshipID = :championshipID';
@@ -207,7 +208,7 @@ class ChampionshipEntry
         //Bind ID
         $stmt->bindValue(':driverID', $this->championshipEntryDriverID);
         $stmt->bindValue(':championshipID', $this->championshipEntryChampionshipID);
-        $stmt->bindValue(':pointsScored', intval($pointsScored),PDO::PARAM_INT);
+        $stmt->bindValue(':pointsScored', intval($pointsScored), PDO::PARAM_INT);
         // Execute Query
 
         $stmt->execute();
@@ -248,6 +249,4 @@ class ChampionshipEntry
         $stmt->execute();
         return $stmt;
     }
-
-
 }

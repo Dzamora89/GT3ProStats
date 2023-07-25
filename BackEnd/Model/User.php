@@ -12,10 +12,11 @@ class User
     {
         $this->conn = $db;
     }
-    public function updateTheToken() {
+    public function updateTheToken()
+    {
         $query = 'UPDATE adminuser
                 set token = :token
-                where Username = :username and password = :password';
+                where username = :username and password = :password';
         $stmt = $this->conn->prepare($query);
         $this->username = htmlspecialchars(strip_tags($this->username));
         $this->password = htmlspecialchars(strip_tags($this->password));
@@ -26,9 +27,9 @@ class User
         $stmt->bindParam(':token', $random);
         $stmt->execute();
         return $random;
-
     }
-    public function checkCredentials(){
+    public function checkCredentials()
+    {
         $query = 'select * 
                 from adminuser 
                 where Username = :username and password = :password';
@@ -45,7 +46,8 @@ class User
         return $stmt->rowCount();
     }
 
-    public function checkToken(){
+    public function checkToken()
+    {
         $query = 'select * 
                 from adminuser 
                 where Username = :username and token = :token';

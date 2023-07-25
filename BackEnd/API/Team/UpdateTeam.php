@@ -24,7 +24,7 @@ $team->teamID = $_GET['teamID'];
 $team->teamName = $_GET['teamName'];
 $team->teamOwner = $_GET['teamOwner'];
 $team->teamCountry = $_GET['teamCountry'];
-$team->teamTwitterURL = $_GET['teamTwitterURL'];
+$team->teamTwitter = $_GET['teamTwitter'];
 $team->teamWebsite = $_GET['teamWebsite'];
 $team->teamCarBrand = $_GET['teamCarBrand'];
 

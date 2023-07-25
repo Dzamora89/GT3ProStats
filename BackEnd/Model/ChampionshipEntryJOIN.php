@@ -2,7 +2,7 @@
 
 class ChampionshipEntryJOIN
 {
-// DB Stuff
+    // DB Stuff
     private $conn;
 
 

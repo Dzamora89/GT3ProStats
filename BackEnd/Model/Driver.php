@@ -2,7 +2,7 @@
 
 class Driver
 {
-// DB Stuff
+    // DB Stuff
     private $conn;
     private $table = 'driver';
 
@@ -12,7 +12,7 @@ class Driver
     public $driverFirstName;
     public $driverLastName;
     public $driverCountry;
-    public $dateOfBirth;
+    public $driverDateOfBirth;
     public $driverWebsite;
     public $driverTwitter;
     public $driverStatus;
@@ -69,7 +69,7 @@ class Driver
         $this->driverFirstName = htmlspecialchars(strip_tags($this->driverFirstName));
         $this->driverLastName = htmlspecialchars(strip_tags($this->driverLastName));
         $this->driverCountry = htmlspecialchars(strip_tags($this->driverCountry));
-        $this->dateOfBirth = htmlspecialchars(strip_tags($this->dateOfBirth));
+        $this->driverDateOfBirth = htmlspecialchars(strip_tags($this->driverDateOfBirth));
         $this->driverWebsite = htmlspecialchars(strip_tags($this->driverWebsite));
         $this->driverTwitter = htmlspecialchars(strip_tags($this->driverTwitter));
         $this->driverStatus = htmlspecialchars(strip_tags($this->driverStatus));
@@ -129,7 +129,7 @@ class Driver
         $this->driverFirstName = htmlspecialchars(strip_tags($this->driverFirstName));
         $this->driverLastName = htmlspecialchars(strip_tags($this->driverLastName));
         $this->driverCountry = htmlspecialchars(strip_tags($this->driverCountry));
-        $this->dateOfBirth = htmlspecialchars(strip_tags($this->driverDateOfBirth));
+        $this->driverDateOfBirth = htmlspecialchars(strip_tags($this->driverDateOfBirth));
         $this->driverWebsite = htmlspecialchars(strip_tags($this->driverWebsite));
         $this->driverTwitter = htmlspecialchars(strip_tags($this->driverTwitter));
         $this->driverStatus = htmlspecialchars(strip_tags($this->driverStatus));
@@ -188,7 +188,7 @@ class Driver
         $this->driverFirstName = $row['driverFirstName'];
         $this->driverLastName = $row['driverLastName'];
         $this->driverCountry = $row['driverCountry'];
-        $this->dateOfBirth = $row['driverDateOfBirth'];
+        $this->driverDateOfBirth = $row['driverDateOfBirth'];
         $this->driverWebsite = $row['driverWebsite'];
         $this->driverTwitter = $row['driverTwitter'];
         $this->driverStatus = $row['driverStatus'];
@@ -196,7 +196,6 @@ class Driver
         $this->driverELO = $row['driverELO'];
         $this->carManufacturer = $row['carManufacturer'];
         $this->driverImgUrl = $row['driverImgUrl'];
-
     }
 
 
@@ -246,11 +245,11 @@ class Driver
         // Execute Query
         $stmt->execute();
         return $stmt;
-
     }
 
 
-    public function updateElo(){
+    public function updateElo()
+    {
         $query = 'Update driver 
                     set driverELO = :newELO
                     where driverID = :driverID';
