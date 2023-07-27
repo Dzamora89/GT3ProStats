@@ -32,6 +32,7 @@ $raceResult->raceResultLaps = $_GET['raceResultLaps'];
 $raceResult->raceResultPointsScored = $_GET['raceResultPointsScored'];
 $raceResult->raceResultEloChanged = $_GET['raceResultEloChanged'];
 $raceResult->raceResultPosition = $_GET['raceResultPosition'];
+$raceResult->raceResultDriverELO = $_GET['driverELO'];
 
 
 $driver->driverID = $_GET['raceResultDriverID'];

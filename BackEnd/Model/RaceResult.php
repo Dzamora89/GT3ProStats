@@ -18,6 +18,8 @@ class RaceResult
     public  $raceResultPointsScored;
     public  $raceResultEloChanged;
     public  $raceResultPosition;
+    public $raceResultDriverELO;
+
 
 
     public function __construct($db)
@@ -54,7 +56,8 @@ class RaceResult
                         raceResultLaps,
                         raceResultPointsScored,
                         raceResultEloChanged,
-                        raceResultPosition
+                        raceResultPosition,
+                        raceResultDriverELO
                         ) values (
                         :raceResultCarID,
                         :raceResultRaceID,
@@ -63,7 +66,8 @@ class RaceResult
                         :raceResultLaps,
                         :raceResultPointsScored,
                         :raceResultEloChanged,
-                        :raceResultPosition
+                        :raceResultPosition,
+                        :raceResultDriverELO
                         ) ';
 
         //Statment
@@ -79,6 +83,7 @@ class RaceResult
         $this->raceResultPointsScored = htmlspecialchars(strip_tags($this->raceResultPointsScored));
         $this->raceResultEloChanged = htmlspecialchars(strip_tags($this->raceResultEloChanged));
         $this->raceResultPosition = htmlspecialchars(strip_tags($this->raceResultPosition));
+        $this->raceResultDriverELO = htmlspecialchars(strip_tags($this->raceResultDriverELO));
 
         //Bind the dada
         $stmt->bindParam(':raceResultCarID', $this->raceResultCarID);
@@ -89,6 +94,7 @@ class RaceResult
         $stmt->bindParam(':raceResultPointsScored', $this->raceResultPointsScored);
         $stmt->bindParam(':raceResultEloChanged', $this->raceResultEloChanged);
         $stmt->bindParam(':raceResultPosition', $this->raceResultPosition);
+        $stmt->bindParam(':raceResultDriverELO', $this->raceResultDriverELO);
 
         //Execute Query
 
@@ -100,7 +106,7 @@ class RaceResult
             return false;
         }
     }
-
+    // TODO: El update del Race Result tiene mas cosas que hacer. 
     public function updateRaceResult(): bool
     {
         $query = 'UPDATE raceResult 

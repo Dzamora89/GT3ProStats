@@ -18,5 +18,5 @@ $query = 'SELECT *
 $db->prepare($query);
 
 // Execute Query
-$stmt->execute();
+$query->execute();
 return $stmt;
