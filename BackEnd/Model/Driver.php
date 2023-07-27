@@ -33,7 +33,7 @@ class Driver
         $query = 'SELECT distinct driverID, driverFirstName, driverLastName, driverCountry, driverWebsite, driverTwitter, driverStatus,
                         driverELO, carManufacturer, driverLicenseLevel, driverImgUrl , driverDateOfBirth
                   FROM driver
-                  left join championshipentry c on driver.driverID = c.championshipEntryDriverID
+                  left join championshipEntry c on driver.driverID = c.championshipEntryDriverID
                   left join car c2 on c2.carID = c.championshipEntryCarID
                   ORDER BY driverELO desc ';
 

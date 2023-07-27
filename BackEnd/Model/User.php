@@ -14,9 +14,9 @@ class User
     }
     public function updateTheToken()
     {
-        $query = 'UPDATE adminuser
+        $query = 'UPDATE adminUser
                 set token = :token
-                where username = :username and password = :password';
+                where Username = :username and password = :password';
         $stmt = $this->conn->prepare($query);
         $this->username = htmlspecialchars(strip_tags($this->username));
         $this->password = htmlspecialchars(strip_tags($this->password));
@@ -31,7 +31,7 @@ class User
     public function checkCredentials()
     {
         $query = 'select * 
-                from adminuser 
+                from adminUser 
                 where Username = :username and password = :password';
         $stmt = $this->conn->prepare($query);
 
@@ -49,7 +49,7 @@ class User
     public function checkToken()
     {
         $query = 'select * 
-                from adminuser 
+                from adminUser 
                 where Username = :username and token = :token';
         $stmt = $this->conn->prepare($query);
 
