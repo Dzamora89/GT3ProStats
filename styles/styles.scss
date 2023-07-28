@@ -3,9 +3,8 @@
 
 // Include any default variable overrides here (though functions won't be available)
 
-$primary : black;
-$secondary : #ffd734;
-
+$primary: black;
+$secondary: #ffd734;
 
 @import "../node_modules/bootstrap/scss/bootstrap";
 
@@ -33,7 +32,7 @@ body {
 
 .podium__driver {
   text-align: center;
-  padding: 0 .5rem;
+  padding: 0 0.5rem;
 }
 
 .podium__number {
@@ -43,13 +42,14 @@ body {
 
 .podium .first {
   min-height: 300px;
-  background: rgb(255,172,37);
-  background:
-          linear-gradient(333deg,
-                  rgba(255,172,37,1) 0%,
-                  rgba(254,207,51,1) 13%,
-                  rgba(254,224,51,1) 53%,
-                  rgba(255,172,37,1) 100%);
+  background: rgb(255, 172, 37);
+  background: linear-gradient(
+    333deg,
+    rgba(255, 172, 37, 1) 0%,
+    rgba(254, 207, 51, 1) 13%,
+    rgba(254, 224, 51, 1) 53%,
+    rgba(255, 172, 37, 1) 100%
+  );
 }
 
 .podium .second {
@@ -60,4 +60,15 @@ body {
 .podium .third {
   min-height: 100px;
   background: green;
+}
+
+.championshipCardIMG {
+  max-height: 5rem;
+  object-fit: contain;
+}
+.championshipCardHeader {
+  height: 10rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }

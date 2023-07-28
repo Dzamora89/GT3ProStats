@@ -1,37 +1,32 @@
-
 //Cargar el NavBar
 $.ajax({
-    'url': '/navbar.html',
-    'type': 'get',
-    'dataType': 'html',
-    'beforeSend':  () => {
-    }
+  url: "/navbar.html",
+  type: "get",
+  dataType: "html",
+  beforeSend: () => {},
 })
-    .done( (response) => {
-        $('body').prepend(response);
-    })
-    .fail( function (code, status) {
-    })
-    .always( function (xhr, status) {
-    });
-let date = new Date()
-$('#date').text(`${date.getFullYear()}`)
+  .done((response) => {
+    $("body").prepend(response);
+  })
+  .fail(function (code, status) {})
+  .always(function (xhr, status) {});
+let date = new Date();
+$("#date").text(`${date.getFullYear()}`);
 $.ajax({
-    'url': './backend/api/championship/getAllchampionship.php',
-    'data': {
-    },
-    'type': 'get',
-    'dataType': 'json',
-    'beforeSend':  () => {
-    }
+  url: "./backend/api/championship/getAllchampionship.php",
+  data: {},
+  type: "get",
+  dataType: "json",
+  beforeSend: () => {},
 })
-    .done( (response) => {
-        response.forEach( (e) => {
-            $('#championships').append(
-                `
+  .done((response) => {
+    response.forEach((e) => {
+      $("#championships").append(
+        `
                 <div class="card" style="width: 18rem;">
-                    <div class="card-header">
+                    <div class="card-header championshipCardHeader">
                         <h5 class="card-title">${e.championshipName} , ${e.championshipSeason} </h5>
+                        <img src="./img/championship/${e.championshipID}.png" class="card-img-top championshipCardIMG" >
                     </div>
                     <div class="card-body d-flex justify-content-between flex-column">
                         <p class="card-text">Country: ${e.championshipCountry} </p>
@@ -42,10 +37,8 @@ $.ajax({
                     </div>
                 </div>
                 `
-            )
-        })
-    })
-    .fail( function (code, status) {
-    })
-    .always( function (xhr, status) {
+      );
     });
+  })
+  .fail(function (code, status) {})
+  .always(function (xhr, status) {});

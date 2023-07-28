@@ -30,6 +30,7 @@ $championship_Array = array(
     'championshipWebsite' => $championship->championshipWebsite,
     'championshipName' => $championship->championshipName,
     'championshipFacebook' => $championship->championshipFacebook,
-    'championshipSeason' => $championship->championshipSeason);
+    'championshipSeason' => $championship->championshipSeason
+);
 
-print_r(json_encode($championship_Array));
+echo (json_encode($championship_Array));

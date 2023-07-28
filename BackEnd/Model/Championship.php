@@ -137,7 +137,7 @@ class Championship
     public function getChampionshipByID(): void
     {
         $query = 'SELECT * 
-                  FROM ' . $this->table . '
+                  FROM championship
                   WHERE championshipID = :championshipID';
         //Prepare Statement
 
