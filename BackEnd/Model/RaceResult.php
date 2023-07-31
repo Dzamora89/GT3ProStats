@@ -48,13 +48,10 @@ class RaceResult
 
     public function createRaceResult(): bool
     {
-        $query = 'INSERT INTO racerRsult (
+        $query = 'INSERT INTO raceResult (
                         raceResultCarID,
                         raceResultRaceID,
                         raceResultDriverID,
-                        raceResultGap,
-                        raceResultLaps,
-                        raceResultPointsScored,
                         raceResultEloChanged,
                         raceResultPosition,
                         raceResultDriverELO
@@ -62,9 +59,6 @@ class RaceResult
                         :raceResultCarID,
                         :raceResultRaceID,
                         :raceResultDriverID,
-                        :raceResultGap,
-                        :raceResultLaps,
-                        :raceResultPointsScored,
                         :raceResultEloChanged,
                         :raceResultPosition,
                         :raceResultDriverELO
@@ -78,9 +72,6 @@ class RaceResult
         $this->raceResultCarID = htmlspecialchars(strip_tags($this->raceResultCarID));
         $this->raceResultRaceID = htmlspecialchars(strip_tags($this->raceResultRaceID));
         $this->raceResultDriverID = htmlspecialchars(strip_tags($this->raceResultDriverID));
-        $this->raceResultGap = htmlspecialchars(strip_tags($this->raceResultGap));
-        $this->raceResultLaps = htmlspecialchars(strip_tags($this->raceResultLaps));
-        $this->raceResultPointsScored = htmlspecialchars(strip_tags($this->raceResultPointsScored));
         $this->raceResultEloChanged = htmlspecialchars(strip_tags($this->raceResultEloChanged));
         $this->raceResultPosition = htmlspecialchars(strip_tags($this->raceResultPosition));
         $this->raceResultDriverELO = htmlspecialchars(strip_tags($this->raceResultDriverELO));
@@ -89,9 +80,6 @@ class RaceResult
         $stmt->bindParam(':raceResultCarID', $this->raceResultCarID);
         $stmt->bindParam(':raceResultRaceID', $this->raceResultRaceID);
         $stmt->bindParam(':raceResultDriverID', $this->raceResultDriverID);
-        $stmt->bindParam(':raceResultGap', $this->raceResultGap);
-        $stmt->bindParam(':raceResultLaps', $this->raceResultLaps);
-        $stmt->bindParam(':raceResultPointsScored', $this->raceResultPointsScored);
         $stmt->bindParam(':raceResultEloChanged', $this->raceResultEloChanged);
         $stmt->bindParam(':raceResultPosition', $this->raceResultPosition);
         $stmt->bindParam(':raceResultDriverELO', $this->raceResultDriverELO);
@@ -111,10 +99,8 @@ class RaceResult
     {
         $query = 'UPDATE raceResult 
         SET 
-        raceResultGap = :raceResultGap, 
-        raceResultLaps = :raceResultLaps,
-        raceresultPointsScored = :raceResultPointScored,
         raceResultEloChanged = :raceResultEloChanged,
+        raceResultDriverELO = :raceResultDriverELO,
         raceResultPosition = :raceresultPosition
         WHERE
         raceResultID = :raceResultID';
@@ -127,17 +113,11 @@ class RaceResult
         $this->raceResultCarID = htmlspecialchars(strip_tags($this->raceResultCarID));
         $this->raceResultRaceID = htmlspecialchars(strip_tags($this->raceResultRaceID));
         $this->raceResultDriverID = htmlspecialchars(strip_tags($this->raceResultDriverID));
-        $this->raceResultGap = htmlspecialchars(strip_tags($this->raceResultGap));
-        $this->raceResultLaps = htmlspecialchars(strip_tags($this->raceResultLaps));
-        $this->raceResultPointsScored = htmlspecialchars(strip_tags($this->raceResultPointsScored));
         $this->raceResultEloChanged = htmlspecialchars(strip_tags($this->raceResultEloChanged));
         $this->raceResultPosition = htmlspecialchars(strip_tags($this->raceResultPosition));
 
         //Bind the dada
         $stmt->bindParam(':raceResultID', $this->raceResultID);
-        $stmt->bindParam(':raceResultGap', $this->raceResultGap);
-        $stmt->bindParam(':raceResultLaps', $this->raceResultLaps);
-        $stmt->bindParam(':raceResultPointScored', $this->raceResultPointsScored);
         $stmt->bindParam(':raceResultEloChanged', $this->raceResultEloChanged);
         $stmt->bindParam(':raceResultPosition', $this->raceResultPosition);
 

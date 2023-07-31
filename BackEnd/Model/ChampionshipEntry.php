@@ -176,10 +176,10 @@ class ChampionshipEntry
                         c.carID,
                         d.driverELO,
                         c2.championshipName
-                from championshipentry
-                join driver d on d.driverID = championshipentry.championshipEntryDriverID
-                join car c on c.carID = championshipentry.championshipEntryCarID
-                join championship c2 on c2.championshipID = championshipentry.championshipEntryChampionshipID
+                from championshipEntry
+                join driver d on d.driverID = championshipEntry.championshipEntryDriverID
+                join car c on c.carID = championshipEntry.championshipEntryCarID
+                join championship c2 on c2.championshipID = championshipEntry.championshipEntryChampionshipID
                 join team t on t.teamID = c.carTeamID
                 where championshipEntryChampionshipID = :championshipEntryChampionshipID
                 order by championshipEntryTotalPoints desc ';

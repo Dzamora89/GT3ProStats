@@ -24,6 +24,11 @@ $race_Array = array(
     'raceTrack' => $race->raceTrack,
     'raceDateOfRace' => $race->raceDateOfRace,
     'raceCountry' => $race->raceCountry,
-    'raceChampionshipID' => $race->raceChampionshipID);
+    'raceChampionshipID' => $race->raceChampionshipID,
+    'raceDuration' => $race->raceDuration,
+    'raceEventName' => $race->raceEventName,
+    'raceYoutubeLink' => $race->raceYoutubeLink,
+    'raceResultLink' => $race->raceResultLink
+);
 
 print_r(json_encode($race_Array));

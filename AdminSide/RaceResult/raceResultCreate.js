@@ -42,6 +42,7 @@ getSelect();
 //Evento para cargar el Select con las Carreras del Campeonato Anterior
 const k = 5;
 const drivers = [];
+let carreras;
 $(document).on("change", "#championshipSelect", (event) => {
   if ($("#raceSelect").attr("id") !== "raceSelect") {
     $("#principal").append(`
@@ -60,6 +61,7 @@ $(document).on("change", "#championshipSelect", (event) => {
       beforeSend: () => {},
     })
       .done((response) => {
+        carreras = response;
         response.forEach((e) => {
           $("#raceSelect").append(`
                         <option value="${e.raceID}"> ${e.raceTrack} - ${e.raceDateOfRace}</option>
@@ -70,7 +72,7 @@ $(document).on("change", "#championshipSelect", (event) => {
       .always(function (xhr, status) {});
   } else {
     $.ajax({
-      url: "../../backend/api/race/getraceofchampionshipid.php",
+      url: "../../BackEnd/API/Race/GetRaceOfChampionshipID.php",
       data: {
         raceChampionshipID: $("#championshipSelect").val(),
       },
@@ -95,6 +97,32 @@ $(document).on("change", "#championshipSelect", (event) => {
 //Aqui rellenamos los select de la tabla para introducir los datos de los pilotos.
 $(document).on("change", "#raceSelect", (event) => {
   $("#principal").append(`
+  <div class="container-fluid mt-4 d-flex flex-row gap-3" >
+  <div class="input-group mb-3 w-25">
+          <span class="input-group-text">Race Youtube Link</span>
+          <input
+            id="raceYoutubeLink"
+            type="text"
+            class="form-control"
+            placeholder="Youtube Link"
+            aria-label="Youtube Link"
+            aria-describedby="Youtube Link"
+          />
+        </div>
+
+        <div class="input-group mb-3 w-25">
+          <span class="input-group-text">Race Result Link</span>
+          <input
+            id="raceResultLink"
+            type="text"
+            class="form-control"
+            placeholder="Result Link"
+            aria-label="Result Link"
+            aria-describedby="Result Link"
+          />
+        </div>
+  </div>
+   
         <table class="table text-center"  id="resultTable">
             <thead>
                 <tr>
@@ -102,9 +130,6 @@ $(document).on("change", "#raceSelect", (event) => {
                     <th class="w-25">Driver</th>
                     <th >Car Number</th>
                     <th>Car Brand</th>
-                    <th>Laps</th>
-                    <th>Gap</th>
-                    <th>Points Scored</th>
                     <th>DriverELo</th>
                     <th>Elo Update </th>
                 </tr>
@@ -116,7 +141,7 @@ $(document).on("change", "#raceSelect", (event) => {
         </table>
     `);
   $.ajax({
-    url: "../../backend/api/championshipentry/getchampionshipentrybychampionshipID.php",
+    url: "../../BackEnd/API/championshipEntry/GetChampionshipEntryByChampionshipID.php",
     data: {
       ChampionshipID: $("#championshipSelect").val(),
     },
@@ -139,10 +164,7 @@ $(document).on("change", "#raceSelect", (event) => {
                             </td>
                             <td><input class="form-control carNumber" type="text" name="carNumber[]" placeholder="#Num"><input class="form-control carID" type="text" name="carNumber[]" placeholder="#Num" hidden="hidden"></td>
                             <td><input class="form-control carBrand" type="text" name="carBrand[]" placeholder="Brand"></td>
-                            <td><input class="form-control laps" type="text" name="laps[]" placeholder="Laps"></td>
-                            <td><input class="form-control gaps" type="text" name="gaps[]" placeholder="Gaps"></td>
-                            <td><input class="form-control points" type="text" name="points[]" placeholder="Puntos"></td>
-                            <td><input class="form-control driverElo" type="text"  placeholder="Elo" value="0"></td>
+                            <td><input class="form-control driverElo" type="text" placeholder = "0"></td>
                             <td><input class="form-control eloUpdated" type="text"  placeholder="Gains"></td>
                         </tr>
                         `
@@ -160,7 +182,7 @@ $(document).on("change", "#raceSelect", (event) => {
     .always(function (xhr, status) {});
 });
 
-//Aqui vamos a hacerlo para que al seleccionar un piloto se rellene el numero del coche y la marca de forma automatica.
+//Aqui vamos a hacerlo para que al seleccionar un piloto se rellene el numero del coche, la marca y el ELO de forma automatica.
 $(document).on("change", ".pilotos", (event) => {
   let selectedDriver = drivers.find(
     (element) =>
@@ -187,10 +209,8 @@ $(document).on("change", ".pilotos", (event) => {
     .next()
     .next()
     .next()
-    .next()
-    .next()
-    .next()
     .children()
+    .eq(0)
     .val(selectedDriver.driverELO);
 });
 
@@ -224,15 +244,12 @@ $(document).on("click", "#guardar", (event) => {
   for (let i = 0; i < drivers.length; i++) {
     let eloTotal = parseInt($(".driverElo").eq(i).val()) + eloChanges[i];
     $.ajax({
-      url: "../../backEnd/API/RaceResult/CreateRaceResult.php",
+      url: "../../BackEnd/API/RaceResult/CreateRaceResult.php",
       data: {
         raceResultCarID: $(".carID").eq(i).val(),
         raceResultRaceID: $("#raceSelect").val(),
         raceResultDriverID: $(".pilotos").eq(i).val(),
-        raceResultGap: $(".gaps").eq(i).val(),
-        raceResultLaps: $(".laps").eq(i).val(),
         driverELO: eloTotal,
-        raceResultPointsScored: $(".points").eq(i).val(),
         raceResultEloChanged: $(".eloUpdated").eq(i).val(),
         raceResultPosition: $(".posiciones").eq(i).val(),
         championshipID: $("#championshipSelect").val(),
@@ -245,8 +262,39 @@ $(document).on("click", "#guardar", (event) => {
       .fail(function (code, status) {})
       .always(function (xhr, status) {});
   }
+  $.ajax({
+    url: "../../BackEnd/API/Race/UpdateRace.php",
+    data: {
+      raceID: $("#raceSelect").val(),
+      raceTrack: carreras.find(
+        (carrera) => carrera.raceID === parseInt($("#raceSelect").val())
+      ).raceTrack,
+      raceChampionshipID: carreras.find(
+        (carrera) => carrera.raceID === parseInt($("#raceSelect").val())
+      ).raceChampionshipID,
+      raceCountry: carreras.find(
+        (carrera) => carrera.raceID === parseInt($("#raceSelect").val())
+      ).raceCountry,
+      raceDateOfRace: carreras.find(
+        (carrera) => carrera.raceID === parseInt($("#raceSelect").val())
+      ).raceDateOfRace,
+      raceDuration: carreras.find(
+        (carrera) => carrera.raceID === parseInt($("#raceSelect").val())
+      ).raceDuration,
+      raceEventName: carreras.find(
+        (carrera) => carrera.raceID === parseInt($("#raceSelect").val())
+      ).raceEventName,
+      raceYoutubeLink: $("#raceYoutubeLink").val(),
+      raceResultLink: $("#raceResultLink").val(),
+    },
+    type: "get",
+    dataType: "html",
+    beforeSend: () => {},
+  })
+    .done((response) => {})
+    .fail(function (code, status) {})
+    .always(function (xhr, status) {});
 });
-
 function getSelect() {
   $("#principal").html(`
         <select id="championshipSelect" class="form-select" aria-label="Default select example">

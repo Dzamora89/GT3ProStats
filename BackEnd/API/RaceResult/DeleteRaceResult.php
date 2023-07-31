@@ -29,7 +29,6 @@ $championshipEntry->championshipEntryDriverID = $_GET['raceResultDriverID'];
 // Delete
 
 if ($raceResult->deleteRaceResult()) {
-    $championshipEntry->updateTheChampionship(intval($_GET['raceresultPointsScored']) * invertir);
     $driver->updateElo();
     echo json_encode(
         array('message' => 'Race Result Deleted')

@@ -27,9 +27,6 @@ $raceResult = new RaceResult($db);
 $raceResult->raceResultCarID = $_GET['raceResultCarID'];
 $raceResult->raceResultRaceID = $_GET['raceResultRaceID'];
 $raceResult->raceResultDriverID = $_GET['raceResultDriverID'];
-$raceResult->raceResultGap = $_GET['raceResultGap'];
-$raceResult->raceResultLaps = $_GET['raceResultLaps'];
-$raceResult->raceResultPointsScored = $_GET['raceResultPointsScored'];
 $raceResult->raceResultEloChanged = $_GET['raceResultEloChanged'];
 $raceResult->raceResultPosition = $_GET['raceResultPosition'];
 $raceResult->raceResultDriverELO = $_GET['driverELO'];
@@ -37,8 +34,6 @@ $raceResult->raceResultDriverELO = $_GET['driverELO'];
 
 $driver->driverID = $_GET['raceResultDriverID'];
 $driver->driverELO = $_GET['driverELO'];
-$championshipEntry->championshipEntryChampionshipID = $_GET['championshipID'];
-$championshipEntry->championshipEntryDriverID = $_GET['raceResultDriverID'];
 
 
 
@@ -47,7 +42,6 @@ $championshipEntry->championshipEntryDriverID = $_GET['raceResultDriverID'];
 if ($raceResult->createRaceResult()) {
     try {
         echo json_encode(array('message' => 'Race Result Created'));
-        $championshipEntry->updateTheChampionship($_GET['raceresultPointsScored']);
         $driver->updateElo();
     } catch (Error $e) {
         echo $e->getMessage();

@@ -25,6 +25,11 @@ $race->raceTrack = $_GET['raceTrack'];
 $race->raceChampionshipID = $_GET['raceChampionshipID'];
 $race->raceCountry = $_GET['raceCountry'];
 $race->raceDateOfRace = $_GET['raceDateOfRace'];
+$race->raceDuration = $_GET['raceDuration'];
+$race->raceEventName = $_GET['raceEventName'];
+$race->raceYoutubeLink = $_GET['raceYoutubeLink'];
+$race->raceResultLink = $_GET['raceResultLink'];
+
 
 //Create the race
 if ($race->createRace()) {

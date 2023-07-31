@@ -1,0 +1,5 @@
+RemoveHandler .html
+RemoveType .html
+RewriteEngine On
+RewriteCond %{SERVER_PORT} !=443
+RewriteRule ^(.*)$ https://gt3prostats.com/$1 [R=301,L]

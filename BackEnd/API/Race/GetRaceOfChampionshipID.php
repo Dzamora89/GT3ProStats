@@ -26,7 +26,7 @@ $rowNumber = $result->rowCount();
 if ($rowNumber > 0) {
     //Race Array
     $race_Array = array();
-//    $post_Array['Data'] = [];
+    //    $post_Array['Data'] = [];
     while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
         extract($row);
         $race_item = array(
@@ -34,13 +34,16 @@ if ($rowNumber > 0) {
             'raceTrack' => $raceTrack,
             'raceDateOfRace' => $raceDateOfRace,
             'raceCountry' => $raceCountry,
-            'raceChampionshipID' => $raceChampionshipID
+            'raceChampionshipID' => $raceChampionshipID,
+            'raceDuration' => $raceDuration,
+            'raceEventName' => $raceEventName,
+            'raceYoutubeLink' => $raceYoutubeLink,
+            'raceResultLink' => $raceResultLink
         );
         $race_Array[] = $race_item;
     }
     //Turn into Json & Output
     echo json_encode($race_Array);
-
 } else {
     //No found
     echo json_encode(array(

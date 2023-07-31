@@ -13,6 +13,10 @@ class Race
     public $raceDateOfRace;
     public $raceCountry;
     public $raceChampionshipID;
+    public $raceDuration;
+    public $raceEventName;
+    public $raceYoutubeLink;
+    public $raceResultLink;
 
     public function __construct($db)
     {
@@ -26,7 +30,11 @@ class Race
         raceTrack = :raceTrack,
         raceDateOfRace = :raceDateOfRace,
         raceCountry = :raceCountry,
-        raceChampionshipID = :raceChampionshipID';
+        raceChampionshipID = :raceChampionshipID,
+        raceDuration = :raceDuration,
+        raceEventName = :raceEventName,
+        raceYoutubeLink = :raceYoutubeLink,
+        raceResultLink = :raceResultLink';
 
         //Statement
         $stmt = $this->conn->prepare($query);
@@ -37,6 +45,10 @@ class Race
         $this->raceCountry = htmlspecialchars(strip_tags($this->raceCountry));
         $this->raceDateOfRace = htmlspecialchars(strip_tags($this->raceDateOfRace));
         $this->raceChampionshipID = htmlspecialchars(strip_tags($this->raceChampionshipID));
+        $this->raceDuration = htmlspecialchars(strip_tags($this->raceDuration));
+        $this->raceEventName = htmlspecialchars(strip_tags($this->raceEventName));
+        $this->raceYoutubeLink = htmlspecialchars(strip_tags($this->raceYoutubeLink));
+        $this->raceResultLink = htmlspecialchars(strip_tags($this->raceResultLink));
 
 
         //Bind the dada
@@ -44,6 +56,10 @@ class Race
         $stmt->bindParam(':raceCountry', $this->raceCountry);
         $stmt->bindParam(':raceDateOfRace', $this->raceDateOfRace);
         $stmt->bindParam(':raceChampionshipID', $this->raceChampionshipID);
+        $stmt->bindParam(':raceDuration', $this->raceDuration);
+        $stmt->bindParam(':raceEventName', $this->raceEventName);
+        $stmt->bindParam(':raceYoutubeLink', $this->raceYoutubeLink);
+        $stmt->bindParam(':raceResultLink', $this->raceResultLink);
 
 
         //Execute Query
@@ -59,12 +75,16 @@ class Race
 
     public function updateRace(): bool
     {
-        $query = 'UPDATE ' . $this->table . ' 
+        $query = 'UPDATE race
         SET 
         raceTrack = :raceTrack,
         raceDateOfRace = :raceDateOfRace,
         raceCountry = :raceCountry,
-        raceChampionshipID = :raceChampionshipID
+        raceChampionshipID = :raceChampionshipID,
+        raceDuration = :raceDuration,
+        raceEventName = :raceEventName,
+        raceYoutubeLink = :raceYoutubeLink,
+        raceResultLink = :raceResultLink
         WHERE
         raceID = :raceID';
 
@@ -77,6 +97,10 @@ class Race
         $this->raceCountry = htmlspecialchars(strip_tags($this->raceCountry));
         $this->raceDateOfRace = htmlspecialchars(strip_tags($this->raceDateOfRace));
         $this->raceChampionshipID = htmlspecialchars(strip_tags($this->raceChampionshipID));
+        $this->raceDuration = htmlspecialchars(strip_tags($this->raceDuration));
+        $this->raceEventName = htmlspecialchars(strip_tags($this->raceEventName));
+        $this->raceYoutubeLink = htmlspecialchars(strip_tags($this->raceYoutubeLink));
+        $this->raceResultLink = htmlspecialchars(strip_tags($this->raceResultLink));
 
         //Bind the dada
         $stmt->bindParam(':raceID', $this->raceID);
@@ -84,6 +108,11 @@ class Race
         $stmt->bindParam(':raceCountry', $this->raceCountry);
         $stmt->bindParam(':raceDateOfRace', $this->raceDateOfRace);
         $stmt->bindParam(':raceChampionshipID', $this->raceChampionshipID);
+        $stmt->bindParam(':raceDuration', $this->raceDuration);
+        $stmt->bindParam(':raceEventName', $this->raceEventName);
+        $stmt->bindParam(':raceYoutubeLink', $this->raceYoutubeLink);
+        $stmt->bindParam(':raceResultLink', $this->raceResultLink);
+
 
         //Execute Query
 
@@ -119,6 +148,10 @@ class Race
         $this->raceChampionshipID = $row['raceChampionshipID'];
         $this->raceCountry = $row['raceCountry'];
         $this->raceDateOfRace = $row['raceDateOfRace'];
+        $this->raceDuration = $row['raceDuration'];
+        $this->raceEventName = $row['raceEventName'];
+        $this->raceYoutubeLink = $row['raceYoutubeLink'];
+        $this->raceResultLink = $row['raceResultLink'];
     }
 
     public function getRaceBychampionshipID()
