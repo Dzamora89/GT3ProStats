@@ -109,11 +109,12 @@ class ChampionshipEntry
     {
         //Todo: Revisar la Query
         $query = 'SELECT * 
-                  FROM championshipentry join car c on c.carID = championshipentry.championshipEntryCarID,
-                       championshipentry join driver d on championshipentry.championshipEntryDriverID = d.driverID,
-                       championshipentry join team t on championshipentry.teamID = t.teamID,
-                       championshipentry join championship c2 on championshipentry.championshipentryChampionshipID = c2.championshipID               
-                  WHERE ChampionshipEntryID = :ChampionshipEntryID';
+                  FROM championshipEntry join car c on c.carID = championshipEntry.championshipEntryCarID,
+                       championshipEntry join driver d on championshipEntry.championshipEntryDriverID = d.driverID,
+                       championshipEntry join team t on championshipEntry.teamID = t.teamID,
+                       championshipEntry join championship c2 on championshipEntry.championshipentryChampionshipID = c2.championshipID               
+                  WHERE ChampionshipEntryID = :ChampionshipEntryID
+                  ORDER BY driver.driverLastName ASC';
         //Prepare Statement
 
         $stmt = $this->conn->prepare($query);
@@ -182,7 +183,7 @@ class ChampionshipEntry
                 join championship c2 on c2.championshipID = championshipEntry.championshipEntryChampionshipID
                 join team t on t.teamID = c.carTeamID
                 where championshipEntryChampionshipID = :championshipEntryChampionshipID
-                order by championshipEntryTotalPoints desc ';
+                order by driverLastName ASC ';
         //Prepare Statement
 
         $stmt = $this->conn->prepare($query);

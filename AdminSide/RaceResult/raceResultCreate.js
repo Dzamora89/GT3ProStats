@@ -107,6 +107,11 @@ $(document).on("change", "#raceSelect", (event) => {
             placeholder="Youtube Link"
             aria-label="Youtube Link"
             aria-describedby="Youtube Link"
+            value="${
+              carreras.find(
+                (carrera) => carrera.raceID === parseInt($("#raceSelect").val())
+              ).raceYoutubeLink
+            }"
           />
         </div>
 
@@ -119,6 +124,11 @@ $(document).on("change", "#raceSelect", (event) => {
             placeholder="Result Link"
             aria-label="Result Link"
             aria-describedby="Result Link"
+            value="${
+              carreras.find(
+                (carrera) => carrera.raceID === parseInt($("#raceSelect").val())
+              ).raceResultLink
+            }"
           />
         </div>
   </div>
@@ -164,7 +174,7 @@ $(document).on("change", "#raceSelect", (event) => {
                             </td>
                             <td><input class="form-control carNumber" type="text" name="carNumber[]" placeholder="#Num"><input class="form-control carID" type="text" name="carNumber[]" placeholder="#Num" hidden="hidden"></td>
                             <td><input class="form-control carBrand" type="text" name="carBrand[]" placeholder="Brand"></td>
-                            <td><input class="form-control driverElo" type="text" placeholder = "0"></td>
+                            <td><input class="form-control driverElo" type="text" value="0"></td>
                             <td><input class="form-control eloUpdated" type="text"  placeholder="Gains"></td>
                         </tr>
                         `
@@ -173,7 +183,7 @@ $(document).on("change", "#raceSelect", (event) => {
       for (let i = 0; i < response.length; i++) {
         $(`.pilotos`).append(
           `
-                            <option value="${response[i].championshipEntryDriverID}"> ${response[i].driverLastName} , ${response[i].driverFirstName} </option>
+                            <option value="${response[i].championshipEntryDriverID}">${response[i].driverLastName}, ${response[i].driverFirstName} </option>
                         `
         );
       }
@@ -211,7 +221,7 @@ $(document).on("change", ".pilotos", (event) => {
     .next()
     .children()
     .eq(0)
-    .val(selectedDriver.driverELO);
+    .val(`${selectedDriver.driverELO}`);
 });
 
 $(document).on("click", "#guardar", (event) => {
