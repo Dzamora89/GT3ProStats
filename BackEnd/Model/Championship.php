@@ -17,6 +17,7 @@ class Championship
     public $championshipFacebook;
     public $championshipYoutube;
     public $championshipSeason;
+    public $championshipStandings;
 
     public function __construct($db)
     {
@@ -49,7 +50,8 @@ class Championship
         championshipTwitter = :championshipTwitter,
         championshipFacebook = :championshipFacebook,
         championshipYoutube = :championshipYoutube,
-        championshipSeason = :championshipSeason';
+        championshipSeason = :championshipSeason,
+        championshipStandings = :championshipStandings';
 
         //Statment
         $stmt = $this->conn->prepare($query);
@@ -63,7 +65,7 @@ class Championship
         $this->championshipFacebook = htmlspecialchars(strip_tags($this->championshipFacebook));
         $this->championshipYoutube = htmlspecialchars(strip_tags($this->championshipYoutube));
         $this->championshipSeason = htmlspecialchars(strip_tags($this->championshipSeason));
-
+        $this->championshipStandings = htmlspecialchars(strip_tags($this->championshipStandings));
         //Bind the dada
         $stmt->bindParam(':championshipName', $this->championshipName);
         $stmt->bindParam(':championshipCountry', $this->championshipCountry);
@@ -72,7 +74,7 @@ class Championship
         $stmt->bindParam(':championshipFacebook', $this->championshipFacebook);
         $stmt->bindParam(':championshipYoutube', $this->championshipYoutube);
         $stmt->bindParam(':championshipSeason', $this->championshipSeason);
-
+        $stmt->bindParam(':championshipStandings', $this->championshipStandings);
         //Execute Query
 
         if ($stmt->execute()) {
@@ -94,7 +96,8 @@ class Championship
         championshipTwitter = :championshipTwitter,
         championshipFacebook = :championshipFacebook,
         championshipYoutube = :championshipYoutube,
-        championshipSeason = :championshipSeason
+        championshipSeason = :championshipSeason,
+        championshipStandings = :championshipStandings
         WHERE
         championshipID = :championshipID';
 
@@ -110,7 +113,7 @@ class Championship
         $this->championshipFacebook = htmlspecialchars(strip_tags($this->championshipFacebook));
         $this->championshipYoutube = htmlspecialchars(strip_tags($this->championshipYoutube));
         $this->championshipSeason = htmlspecialchars(strip_tags($this->championshipSeason));
-
+        $this->championshipStandings = htmlspecialchars(strip_tags($this->championshipStandings));
         //Bind the dada
         $stmt->bindParam('championshipID', $this->championshipID);
         $stmt->bindParam(':championshipName', $this->championshipName);
@@ -120,7 +123,7 @@ class Championship
         $stmt->bindParam(':championshipFacebook', $this->championshipFacebook);
         $stmt->bindParam(':championshipYoutube', $this->championshipYoutube);
         $stmt->bindParam(':championshipSeason', $this->championshipSeason);
-
+        $stmt->bindParam(':championshipStandings', $this->championshipStandings);
 
         //Execute Query
 
@@ -160,6 +163,7 @@ class Championship
         $this->championshipFacebook = $row['championshipFacebook'];
         $this->championshipYoutube = $row['championshipYoutube'];
         $this->championshipSeason = $row['championshipSeason'];
+        $this->championshipStandings = $row['championshipStandings'];
     }
 
 

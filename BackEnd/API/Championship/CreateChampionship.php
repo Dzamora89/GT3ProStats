@@ -28,6 +28,7 @@ $championship->championshipTwitter = $_GET['championshipTwitter'];
 $championship->championshipWebsite = $_GET['championshipWebsite'];
 $championship->championshipCountry = $_GET['championshipCountry'];
 $championship->championshipSeason = $_GET['championshipSeason'];
+$championship->championshipStandings = $_GET['championshipStandings'];
 //Create the championship
 if ($championship->createChampionship()) {
     echo json_encode(array('message' => 'championship Created'));

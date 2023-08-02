@@ -31,6 +31,10 @@ $.ajax({
       "src",
       `./img/championship/${response.championshipID}.png`
     );
+    $("#YoutubeLink").attr("href", `${response.championshipYoutube}`);
+    $("#TwitterLink").attr("href", `${response.championshipTwitter}`);
+    $("#FacebookLink").attr("href", `${response.championshipFacebook}`);
+    $("#WebsiteLink").attr("href", `${response.championshipWebsite}`);
   })
   .fail(function (code, status) {})
   .always(function (xhr, status) {});
